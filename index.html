@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Restoration Software</title>
+<title>Struvae | Restoration Software</title>
 <meta name="description" content="Struvae is the connected system behind every restoration job — scoping, documentation, and the tools crews open in the field. First up: Struvae Capture.">
 <meta name="theme-color" content="#17181B">
 
@@ -112,21 +112,47 @@
   .intro-mark{
     position: absolute;
     left: 50%;
-    bottom: 11%;
+    bottom: 9%;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 11px;
+    text-align: center;
+    width: min(88vw, 460px);
+  }
+  .intro-mark-row{
     display: flex;
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.05s forwards;
+    animation: fadeUp 520ms ease 3.4s forwards;
   }
-  .intro-mark img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
-  .intro-mark span{
+  .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .intro-mark-row span{
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 0.15px;
     color: var(--ink);
+  }
+  .intro-mark-eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--capture);
+    opacity: 0;
+    animation: fadeUp 520ms ease 3.6s forwards;
+  }
+  .intro-mark-tagline{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    opacity: 0;
+    animation: fadeUp 520ms ease 3.8s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -219,7 +245,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 620ms ease 3.45s forwards;
+    animation: fadeUp 620ms ease 5.3s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -239,8 +265,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 3.58s; }
-  h1 .line:nth-child(2){ animation-delay: 3.70s; }
+  h1 .line:nth-child(1){ animation-delay: 5.43s; }
+  h1 .line:nth-child(2){ animation-delay: 5.55s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -250,14 +276,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 620ms ease 3.82s forwards;
+    animation: fadeUp 620ms ease 5.68s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 620ms ease 3.94s forwards;
+    animation: fadeUp 620ms ease 5.8s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -353,6 +379,16 @@
     transform-box: fill-box;
     transform-origin: center;
     animation: pinPop 360ms cubic-bezier(.2,.9,.3,1.2) forwards;
+  }
+  .hero-plan .probe-flick{
+    opacity: 0;
+    animation: probeFlick 650ms ease forwards;
+  }
+  @keyframes probeFlick{
+    0%{ opacity: 0; }
+    28%{ opacity: 1; }
+    72%{ opacity: 1; }
+    100%{ opacity: 0; }
   }
   .hero-plan .doc-pin-ring{
     fill: none;
@@ -695,7 +731,7 @@
   @media (prefers-reduced-motion: reduce){
     *, *::before, *::after{ animation: none !important; transition: none !important; }
     #intro{ display: none !important; }
-    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .bp-line, .bp-fade, .damage, .scan-bar, .doc-pin{ opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .bp-line, .bp-fade, .damage, .scan-bar, .doc-pin, .probe-flick{ opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
     .reveal{ opacity: 1; transform: none; }
   }
 </style>
@@ -748,25 +784,40 @@
         <animate attributeName="x" from="283" to="651" begin="0.55s" dur="1.6s" calcMode="spline" keySplines="0.45 0 0.2 1" fill="freeze"/>
       </rect>
 
-      <!-- documentation pins left behind once an area is scanned -->
-      <g class="doc-pin" style="animation-delay:2.35s">
-        <circle cx="356" cy="368" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M352 368l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- moisture-meter probe flicks, just ahead of each reading -->
+      <g class="probe-flick" style="animation-delay:1.70s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M352 342L352 350M360 342L360 350M352 342L360 342M356 342L356 334"/>
       </g>
-      <g class="doc-pin" style="animation-delay:2.55s">
-        <circle cx="470" cy="352" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M466 352l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="probe-flick" style="animation-delay:2.05s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M466 326L466 334M474 326L474 334M466 326L474 326M470 326L470 318"/>
       </g>
-      <g class="doc-pin" style="animation-delay:2.75s">
-        <circle class="doc-pin-ring live" cx="588" cy="336" r="9"/>
-        <circle cx="588" cy="336" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M584 336l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="probe-flick" style="animation-delay:2.40s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M584 310L584 318M592 310L592 318M584 310L592 310M588 310L588 302"/>
+      </g>
+
+      <!-- moisture-content readings, settling as each spot is documented dry -->
+      <g class="doc-pin" style="animation-delay:1.95s">
+        <rect x="336" y="358" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="34" data-to="8" data-start="1.95" data-duration="0.6" x="356" y="372" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">34%</text>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.30s">
+        <rect x="450" y="342" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="29" data-to="6" data-start="2.30" data-duration="0.6" x="470" y="356" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">29%</text>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.65s">
+        <circle class="doc-pin-ring live" cx="588" cy="336" r="16"/>
+        <rect x="568" y="326" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="22" data-to="11" data-start="2.65" data-duration="0.6" x="588" y="340" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">22%</text>
       </g>
     </svg>
   </div>
   <div class="intro-mark">
-    <img src="struvae-mark.png" alt="">
-    <span>Struvae.</span>
+    <div class="intro-mark-row">
+      <img src="struvae-mark.png" alt="">
+      <span>Struvae.</span>
+    </div>
+    <div class="intro-mark-eyebrow">Restoration Software</div>
+    <div class="intro-mark-tagline">The operating system for restoration contractors.</div>
   </div>
 </div>
 
@@ -902,19 +953,30 @@
         <animate attributeName="x" from="283" to="651" begin="0.55s" dur="1.6s" calcMode="spline" keySplines="0.45 0 0.2 1" fill="freeze"/>
       </rect>
 
-      <!-- documentation pins left behind once an area is scanned -->
-      <g class="doc-pin" style="animation-delay:2.35s">
-        <circle cx="356" cy="368" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M352 368l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- moisture-meter probe flicks, just ahead of each reading -->
+      <g class="probe-flick" style="animation-delay:1.70s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M352 342L352 350M360 342L360 350M352 342L360 342M356 342L356 334"/>
       </g>
-      <g class="doc-pin" style="animation-delay:2.55s">
-        <circle cx="470" cy="352" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M466 352l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="probe-flick" style="animation-delay:2.05s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M466 326L466 334M474 326L474 334M466 326L474 326M470 326L470 318"/>
       </g>
-      <g class="doc-pin" style="animation-delay:2.75s">
-        <circle class="doc-pin-ring live" cx="588" cy="336" r="9"/>
-        <circle cx="588" cy="336" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <path d="M584 336l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="probe-flick" style="animation-delay:2.40s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
+        <path d="M584 310L584 318M592 310L592 318M584 310L592 310M588 310L588 302"/>
+      </g>
+
+      <!-- moisture-content readings, settling as each spot is documented dry -->
+      <g class="doc-pin" style="animation-delay:1.95s">
+        <rect x="336" y="358" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="34" data-to="8" data-start="1.95" data-duration="0.6" x="356" y="372" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">34%</text>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.30s">
+        <rect x="450" y="342" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="29" data-to="6" data-start="2.30" data-duration="0.6" x="470" y="356" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">29%</text>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.65s">
+        <circle class="doc-pin-ring live" cx="588" cy="336" r="16"/>
+        <rect x="568" y="326" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <text class="mc-value" data-from="22" data-to="11" data-start="2.65" data-duration="0.6" x="588" y="340" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">22%</text>
       </g>
     </svg>
   </div>
@@ -1009,8 +1071,29 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 3450);
+      }, 5300);
     }
+  })();
+
+  // ---- Moisture reading count animation ----
+  (function(){
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.mc-value').forEach(function(el){
+      var from = parseFloat(el.dataset.from);
+      var to = parseFloat(el.dataset.to);
+      if(reduceMotion){ el.textContent = to + '%'; return; }
+      var start = parseFloat(el.dataset.start) * 1000;
+      var duration = parseFloat(el.dataset.duration) * 1000;
+      setTimeout(function(){
+        var t0 = performance.now();
+        function tick(now){
+          var p = Math.min(1, (now - t0) / duration);
+          el.textContent = Math.round(from + (to - from) * p) + '%';
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, start);
+    });
   })();
 
   // ---- Scroll reveal ----
