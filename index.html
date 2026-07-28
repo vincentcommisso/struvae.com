@@ -106,9 +106,17 @@
     pointer-events: none;
   }
   .intro-plan-wrap{
-    width: min(76vw, 580px);
+    width: min(58vw, 400px);
+    aspect-ratio: 480 / 640;
+    position: relative;
+    perspective: 1200px;
   }
-  .intro-plan-wrap svg{ width: 100%; height: auto; display: block; overflow: visible; }
+  .intro-plan-wrap .plan-flat,
+  .intro-plan-wrap .plan-cutaway{
+    position: absolute;
+    inset: 0;
+  }
+  .intro-plan-wrap svg{ width: 100%; height: 100%; display: block; overflow: visible; }
   .intro-mark{
     position: absolute;
     left: 50%;
@@ -126,7 +134,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.4s forwards;
+    animation: fadeUp 520ms ease 6.05s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -144,7 +152,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 520ms ease 3.6s forwards;
+    animation: fadeUp 520ms ease 6.25s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -152,7 +160,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 520ms ease 3.8s forwards;
+    animation: fadeUp 520ms ease 6.45s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -245,7 +253,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 620ms ease 5.3s forwards;
+    animation: fadeUp 620ms ease 7.6s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -265,8 +273,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 5.43s; }
-  h1 .line:nth-child(2){ animation-delay: 5.55s; }
+  h1 .line:nth-child(1){ animation-delay: 7.73s; }
+  h1 .line:nth-child(2){ animation-delay: 7.85s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -276,14 +284,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 620ms ease 5.68s forwards;
+    animation: fadeUp 620ms ease 7.98s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 620ms ease 5.8s forwards;
+    animation: fadeUp 620ms ease 8.1s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -313,16 +321,92 @@
   }
 
   /* ---------- blueprint (kept smaller + quieter in the header) ---------- */
+  .blueprint-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: end;
+  }
   .blueprint{
     position: relative;
-    width: min(40vw, 470px);
+    width: min(23vw, 300px);
     max-width: none;
-    aspect-ratio: 720 / 560;
-    justify-self: end;
-    transform: translateX(0) scale(1);
-    transform-origin: center right;
+    aspect-ratio: 480 / 640;
+    perspective: 1200px;
+  }
+  .blueprint .plan-flat,
+  .blueprint .plan-cutaway{
+    position: absolute;
+    inset: 0;
   }
   .blueprint svg{ width: 100%; height: 100%; overflow: visible; display:block; }
+
+  .plan-flat{
+    animation: foldAway 0.8s ease-in 1.9s forwards;
+    transform-origin: 50% 100%;
+    backface-visibility: hidden;
+  }
+  .plan-cutaway{
+    opacity: 0;
+    animation: foldIn 0.9s ease-out 2.0s forwards;
+    transform-origin: 50% 0%;
+    backface-visibility: hidden;
+  }
+  @keyframes foldAway{
+    0%{ transform: rotateX(0deg); opacity: 1; }
+    100%{ transform: rotateX(85deg); opacity: 0; }
+  }
+  @keyframes foldIn{
+    0%{ transform: rotateX(-85deg); opacity: 0; }
+    100%{ transform: rotateX(0deg); opacity: 1; }
+  }
+
+  /* dry / water-damage toggle */
+  .plan-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+    opacity: 0;
+    animation: fadeUp 600ms ease 8.3s forwards;
+  }
+  .plan-toggle-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 200ms ease;
+  }
+  .plan-toggle-label[data-state="wet"]{ color: var(--muted); }
+  .plan-toggle[data-checked="true"] .plan-toggle-label[data-state="wet"]{ color: var(--capture); }
+  .plan-toggle[data-checked="true"] .plan-toggle-label[data-state="dry"]{ color: var(--muted); }
+  .plan-toggle:not([data-checked="true"]) .plan-toggle-label[data-state="dry"]{ color: var(--ink-soft); }
+  .plan-toggle-switch{
+    position: relative;
+    width: 40px;
+    height: 22px;
+    border-radius: 100px;
+    border: 1.5px solid var(--line-strong);
+    background: var(--paper-raised);
+    padding: 0;
+    transition: background 200ms ease, border-color 200ms ease;
+  }
+  .plan-toggle-knob{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--muted);
+    transition: transform 220ms cubic-bezier(.4,0,.2,1), background 200ms ease;
+  }
+  .plan-toggle[data-checked="true"] .plan-toggle-switch{ background: var(--capture-soft); border-color: rgba(46,155,199,0.45); }
+  .plan-toggle[data-checked="true"] .plan-toggle-knob{ transform: translateX(18px); background: var(--capture); }
+
+
   .bp-line{
     fill: none;
     stroke: var(--bp-line);
@@ -358,54 +442,45 @@
   .hero-plan .dimension-text{font:11px 'IBM Plex Mono',monospace;fill:#767B80;letter-spacing:.4px;}
   .hero-plan .room-grid{opacity:.28;}
 
-  /* ---------- restoration reveal: stain fades as the scan passes ---------- */
-  .hero-plan .damage{
-    opacity: 0;
-    animation: damageIn 480ms ease 1.05s forwards;
-  }
-  .hero-plan .damage-fill{ fill: url(#stainGrad); }
-  .hero-plan .damage-crack{ fill:none; stroke: rgba(26,88,116,.42); stroke-width: 1.1; stroke-linecap: round; }
-  @keyframes damageIn{ to{ opacity: 1; } }
-
-  .hero-plan .scan-bar{
-    opacity: 0;
-    filter: drop-shadow(0 0 6px rgba(46,155,199,.65));
-    animation: scanBarIn 120ms linear 1.25s forwards;
-  }
-  @keyframes scanBarIn{ to{ opacity: 1; } }
-
-  .hero-plan .doc-pin{
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: pinPop 360ms cubic-bezier(.2,.9,.3,1.2) forwards;
-  }
-  .hero-plan .probe-flick{
-    opacity: 0;
-    animation: probeFlick 650ms ease forwards;
-  }
-  @keyframes probeFlick{
-    0%{ opacity: 0; }
-    28%{ opacity: 1; }
-    72%{ opacity: 1; }
-    100%{ opacity: 0; }
-  }
-  .hero-plan .doc-pin-ring{
+  /* ---------- cutaway illustration (Act 2: opens up from the flat plan) ---------- */
+  .cutaway-plan .cw-line{
     fill: none;
-    stroke: var(--capture);
-    stroke-width: 1.2;
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
+    stroke: var(--bp-line);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+    animation: draw 0.6s cubic-bezier(.4,0,.2,1) forwards;
   }
-  .hero-plan .doc-pin-ring.live{
-    animation: pinRing 2.6s ease-out 3.15s infinite;
+  .cutaway-plan .cw-slab-face{ fill: var(--paper-raised); stroke: var(--bp-line); stroke-width: 1.6; }
+  .cutaway-plan .cw-slab-edge{ fill: #E4E1D6; stroke: var(--bp-line); stroke-width: 1.2; }
+  .cutaway-plan .cw-slab{ opacity: 0; animation: bpFade 400ms ease forwards; }
+  .cutaway-plan .cw-ground{ stroke: var(--bp-dim); stroke-width: 1; stroke-dasharray: 3 3; }
+
+  .cutaway-damage{ transition: opacity 320ms ease; }
+  #heroCutaway.hide-damage .cutaway-damage{ opacity: 0 !important; pointer-events: none; }
+
+  .cutaway-plan .cw-puddle{ fill: url(#stainGrad); opacity: 0; animation: bpFade 450ms ease forwards; }
+  .cutaway-plan .cw-stain{ fill: #2E9BC7; opacity: 0; animation: cwStainIn 550ms ease forwards; }
+  @keyframes cwStainIn{ to{ opacity: .2; } }
+  .cutaway-plan .cw-sliver{ fill: #2E9BC7; opacity: 0; animation: cwSliverIn 450ms ease forwards; }
+  @keyframes cwSliverIn{ to{ opacity: .55; } }
+  .cutaway-plan .cw-drip{
+    fill: none; stroke: #2E9BC7; stroke-width: 1.8; stroke-linecap: round;
+    stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+    animation: draw 0.35s ease forwards;
   }
-  @keyframes pinPop{ 0%{ opacity:0; transform:scale(.5); } 100%{ opacity:1; transform:scale(1); } }
-  @keyframes pinRing{
-    0%{ opacity:.55; transform:scale(.5); }
-    100%{ opacity:0; transform:scale(2.1); }
+  .cutaway-plan .cw-droplet{ fill: #2E9BC7; opacity: 0; animation: bpFade 250ms ease forwards; }
+
+  .cutaway-plan .cw-label{
+    opacity: 0; animation: bpFade 450ms ease forwards;
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600;
+    fill: var(--ink); letter-spacing: .3px;
   }
+  .cutaway-plan .cw-leader{ stroke: var(--bp-dim); stroke-width: 1; opacity: 0; animation: bpFade 450ms ease forwards; }
+  .cutaway-plan .cw-legend{ opacity: 0; animation: fadeUp 500ms ease forwards; }
+  .cutaway-plan .cw-legend text{ font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: .3px; fill: var(--ink-soft); }
 
   /* fallback: skip long intro delays for repeat visits / reduced motion */
   body.no-intro .eyebrow{ animation-delay: 0.15s !important; }
@@ -413,10 +488,20 @@
   body.no-intro h1 .line:nth-child(2){ animation-delay: 0.35s !important; }
   body.no-intro .hero p.sub{ animation-delay: 0.45s !important; }
   body.no-intro .hero-ctas{ animation-delay: 0.55s !important; }
-  body.no-intro .hero-plan .bp-line{ animation-delay: 0.1s !important; }
-  body.no-intro .hero-plan .bp-fade{ animation-delay: 0.55s !important; }
-  body.no-intro .hero-plan .damage{ animation-delay: 0.65s !important; }
-  body.no-intro .hero-plan .scan-bar{ animation-delay: 0.78s !important; }
+  body.no-intro .plan-toggle{ animation-delay: 0.65s !important; }
+  body.no-intro .plan-flat{ animation: none !important; opacity: 0 !important; }
+  body.no-intro .plan-cutaway{ animation: none !important; opacity: 1 !important; transform: none !important; }
+  body.no-intro .cutaway-plan .cw-line,
+  body.no-intro .cutaway-plan .cw-slab,
+  body.no-intro .cutaway-plan .cw-puddle,
+  body.no-intro .cutaway-plan .cw-stain,
+  body.no-intro .cutaway-plan .cw-sliver,
+  body.no-intro .cutaway-plan .cw-drip,
+  body.no-intro .cutaway-plan .cw-droplet,
+  body.no-intro .cutaway-plan .cw-label,
+  body.no-intro .cutaway-plan .cw-leader,
+  body.no-intro .cutaway-plan .cw-legend{ animation-delay: 0.1s !important; }
+
 
   /* ---------- built from the field ---------- */
   .field{
@@ -612,7 +697,7 @@
       grid-template-columns: minmax(360px, 1fr) minmax(340px, .86fr);
       min-height: 500px;
     }
-    .blueprint{ width: min(38vw, 400px); }
+    .blueprint{ width: min(22vw, 260px); }
   }
 
   @media (max-width: 860px){
@@ -621,14 +706,17 @@
     .menu-toggle{ display:flex; }
     .mobile-menu, .menu-backdrop{ display:block; }
     .hero{ grid-template-columns:1fr; min-height:auto; padding-top:42px; }
-    .blueprint{ display:block; width:min(78%,380px); max-width:none; justify-self:center; margin: 20px auto 0; }
+    .blueprint-wrap{ justify-self:center; margin: 20px auto 0; }
+    .blueprint{ width:min(56%,260px); }
     .suite-grid{ grid-template-columns: repeat(2, 1fr); }
     .field-inner{ flex-direction: column; gap: 14px; }
+    .bg-watermark{ font-size: 320px; right: -60px; bottom: -70px; }
   }
   @media (max-width: 520px){
     .suite-grid{ grid-template-columns: 1fr; }
-    .blueprint{ width: 84%; }
+    .blueprint{ width: 62%; }
     .hero{ padding-left:20px; padding-right:20px; }
+    .bg-watermark{ font-size: 240px; right: -46px; bottom: -52px; }
   }
 
   /* ---------- waitlist ---------- */
@@ -731,7 +819,14 @@
   @media (prefers-reduced-motion: reduce){
     *, *::before, *::after{ animation: none !important; transition: none !important; }
     #intro{ display: none !important; }
-    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .bp-line, .bp-fade, .damage, .scan-bar, .doc-pin, .probe-flick{ opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important; }
+    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .plan-toggle, .bp-line, .bp-fade,
+    .cw-line, .cw-slab, .cw-puddle, .cw-drip, .cw-droplet, .cw-label, .cw-leader, .cw-legend{
+      opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important;
+    }
+    .cw-stain{ opacity: .2 !important; }
+    .cw-sliver{ opacity: .55 !important; }
+    .plan-flat{ display: none !important; }
+    .plan-cutaway{ opacity: 1 !important; transform: none !important; }
     .reveal{ opacity: 1; transform: none; }
   }
 </style>
@@ -741,7 +836,8 @@
 <!-- ================= OPENING SEQUENCE ================= -->
 <div id="intro" aria-hidden="true">
   <div class="intro-plan-wrap">
-    <svg class="hero-plan" viewBox="0 0 720 560" aria-label="A floor plan drawing itself in, with a water-damaged area highlighted in blue and then cleared as it is scanned">
+    <div class="plan-flat">
+      <svg class="hero-plan" viewBox="0 0 720 560" aria-label="A floor plan drawing itself in, before opening up into a cutaway view">
       <!-- exterior and interior walls -->
       <path class="wall bp-line" style="--len:2800;animation-delay:.15s" d="M76 56H666V488H76V56Z"/>
       <path class="wall bp-line" style="--len:590;animation-delay:.23s" d="M244 56V202M244 245V356M244 398V488"/>
@@ -772,44 +868,98 @@
         <path class="door-leaf" d="M244 356H287"/><path class="door-swing" d="M244 398A42 42 0 0 1 286 356"/>
       </g>
 
-      <!-- water-damage stain: fades in, then is revealed-clean as the scan sweeps across -->
-      <g class="damage" clip-path="url(#restoreClip)">
-        <path class="damage-fill" d="M306 344C350 306 401 292 458 304C508 314 554 294 606 320C645 340 655 382 624 414C590 449 538 438 494 431C446 423 406 445 359 429C317 415 283 375 306 344Z"/>
-        <path class="damage-crack" d="M368 350C384 362 372 378 390 388C404 396 398 408 412 414"/>
-        <path class="damage-crack" d="M470 335C486 344 480 356 498 362"/>
-      </g>
+      </svg>
+    </div>
+    <div class="plan-cutaway">
+<svg id="introCutaway" class="cutaway-plan" viewBox="0 0 480 640" aria-label="A cutaway illustration of a building showing a roof leak seeping down through a wall cavity and pooling under the floor">
+        <defs>
+          <radialGradient id="stainGradCWIntro" cx="46%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#1F7FA6" stop-opacity=".45"/>
+            <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".26"/>
+            <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
 
-      <!-- scan sweep that reveals the restored state -->
-      <rect class="scan-bar" x="283" y="286" width="4" height="176" fill="url(#scanGrad)">
-        <animate attributeName="x" from="283" to="651" begin="0.55s" dur="1.6s" calcMode="spline" keySplines="0.45 0 0.2 1" fill="freeze"/>
-      </rect>
+        <!-- roof, corner posts, ground line -->
+        <path class="cw-line" style="--len:350; animation-delay:2.9s" d="M100,150 L240,50 L380,150"/>
+        <path class="cw-line" style="--len:410; animation-delay:3.05s" d="M100,150 L100,560"/>
+        <path class="cw-line" style="--len:410; animation-delay:3.1s" d="M380,150 L380,560"/>
+        <path class="cw-ground cw-line" style="--len:300; animation-delay:3.2s" d="M90,560 L390,560"/>
 
-      <!-- moisture-meter probe flicks, just ahead of each reading -->
-      <g class="probe-flick" style="animation-delay:1.70s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M352 342L352 350M360 342L360 350M352 342L360 342M356 342L356 334"/>
-      </g>
-      <g class="probe-flick" style="animation-delay:2.05s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M466 326L466 334M474 326L474 334M466 326L474 326M470 326L470 318"/>
-      </g>
-      <g class="probe-flick" style="animation-delay:2.40s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M584 310L584 318M592 310L592 318M584 310L592 310M588 310L588 302"/>
-      </g>
+        <!-- level 1 (attic / ceiling) -->
+        <g class="cw-slab" style="animation-delay:3.35s">
+          <path class="cw-slab-edge" d="M130,254 L350,254 L350,264 L130,264 Z"/>
+          <path class="cw-slab-face" d="M100,230 L380,230 L350,254 L130,254 Z"/>
+        </g>
+        <!-- level 2 (mid floor) -->
+        <g class="cw-slab" style="animation-delay:3.55s">
+          <path class="cw-slab-edge" d="M130,404 L350,404 L350,414 L130,414 Z"/>
+          <path class="cw-slab-face" d="M100,380 L380,380 L350,404 L130,404 Z"/>
+        </g>
+        <!-- level 3 (ground floor) -->
+        <g class="cw-slab" style="animation-delay:3.75s">
+          <path class="cw-slab-edge" d="M130,544 L350,544 L350,554 L130,554 Z"/>
+          <path class="cw-slab-face" d="M100,520 L380,520 L350,544 L130,544 Z"/>
+        </g>
 
-      <!-- moisture-content readings, settling as each spot is documented dry -->
-      <g class="doc-pin" style="animation-delay:1.95s">
-        <rect x="336" y="358" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="34" data-to="8" data-start="1.95" data-duration="0.6" x="356" y="372" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">34%</text>
-      </g>
-      <g class="doc-pin" style="animation-delay:2.30s">
-        <rect x="450" y="342" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="29" data-to="6" data-start="2.30" data-duration="0.6" x="470" y="356" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">29%</text>
-      </g>
-      <g class="doc-pin" style="animation-delay:2.65s">
-        <circle class="doc-pin-ring live" cx="588" cy="336" r="16"/>
-        <rect x="568" y="326" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="22" data-to="11" data-start="2.65" data-duration="0.6" x="588" y="340" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">22%</text>
-      </g>
-    </svg>
+        <!-- water damage layer (toggleable) -->
+        <g class="cutaway-damage">
+          <!-- roof leak, pooling under the ridge -->
+          <path class="cw-puddle" style="animation-delay:3.95s" fill="url(#stainGradCWIntro)" d="M205,188C214,177 234,174 254,179C269,183 284,177 294,189C299,197 291,204 279,206C264,209 249,202 234,207C219,211 200,203 205,188Z"/>
+          <path class="cw-drip" style="--len:22; animation-delay:4.1s" d="M222,207 L222,228"/>
+          <circle class="cw-droplet" style="animation-delay:4.25s" cx="222" cy="232" r="2.4"/>
+          <path class="cw-drip" style="--len:26; animation-delay:4.15s" d="M248,209 L248,234"/>
+          <circle class="cw-droplet" style="animation-delay:4.3s" cx="248" cy="238" r="2.4"/>
+          <path class="cw-drip" style="--len:20; animation-delay:4.2s" d="M272,206 L272,225"/>
+          <circle class="cw-droplet" style="animation-delay:4.35s" cx="272" cy="229" r="2.4"/>
+
+          <!-- pool sitting on level 1's top face -->
+          <path class="cw-puddle" style="animation-delay:4.45s" fill="url(#stainGradCWIntro)" d="M152,239C161,234 174,235 181,241C184,245 179,249 171,248C163,247 155,246 152,239Z"/>
+
+          <!-- wicking up the cavity between level 1 and level 2 -->
+          <path class="cw-stain" style="animation-delay:4.6s" d="M93,258C89,288 91,328 97,373C98,384 106,384 105,373C101,330 103,296 107,260C106,254 96,253 93,258Z"/>
+          <path class="cw-stain" style="animation-delay:4.68s" d="M373,258C369,288 371,328 377,373C378,384 386,384 385,373C381,330 383,296 387,260C386,254 376,253 373,258Z"/>
+
+          <!-- pool sitting on level 2's top face -->
+          <path class="cw-puddle" style="animation-delay:4.8s" fill="url(#stainGradCWIntro)" d="M292,388C301,383 314,384 321,390C324,394 319,398 311,397C303,396 295,395 292,388Z"/>
+
+          <!-- wicking continues between level 2 and level 3 -->
+          <path class="cw-stain" style="animation-delay:4.95s" d="M93,408C89,438 91,478 97,518C98,526 106,526 105,518C101,480 103,446 107,410C106,404 96,403 93,408Z"/>
+          <path class="cw-stain" style="animation-delay:5.03s" d="M373,408C369,438 371,478 377,518C378,526 386,526 385,518C381,480 383,446 387,410C386,404 376,403 373,408Z"/>
+
+          <!-- trapped water beneath the flooring on level 3 -->
+          <path class="cw-sliver" style="animation-delay:5.15s" d="M130,557 C160,564 200,551 240,559 C280,567 320,553 350,561 L350,567 C320,575 280,565 240,567 C200,559 160,571 130,565 Z"/>
+          <path class="cw-puddle" style="animation-delay:5.25s" fill="url(#stainGradCWIntro)" d="M222,527C234,521 250,523 259,530C263,535 257,540 246,539C235,538 224,536 222,527Z"/>
+
+          <!-- labelled callouts -->
+          <path class="cw-leader" style="animation-delay:5.4s" d="M92,182 L200,190"/>
+          <text class="cw-label" style="animation-delay:5.45s" x="8" y="172">CEILING LEAK</text>
+          <text class="cw-label" style="animation-delay:5.45s" x="8" y="184">&amp; POOLING</text>
+
+          <path class="cw-leader" style="animation-delay:5.5s" d="M92,300 L100,300"/>
+          <text class="cw-label" style="animation-delay:5.55s" x="8" y="296">WICKING UP</text>
+          <text class="cw-label" style="animation-delay:5.55s" x="8" y="308">DRYWALL</text>
+
+          <path class="cw-leader" style="animation-delay:5.6s" d="M388,440 L318,393"/>
+          <text class="cw-label" style="animation-delay:5.65s" x="472" y="436" text-anchor="end">ACCUMULATION</text>
+          <text class="cw-label" style="animation-delay:5.65s" x="472" y="448" text-anchor="end">IN CAVITY</text>
+
+          <path class="cw-leader" style="animation-delay:5.7s" d="M92,575 L132,563"/>
+          <text class="cw-label" style="animation-delay:5.75s" x="8" y="571">TRAPPED BENEATH</text>
+          <text class="cw-label" style="animation-delay:5.75s" x="8" y="583">FLOORING</text>
+        </g>
+
+        <!-- legend -->
+        <g class="cw-legend" style="animation-delay:5.9s">
+          <rect x="118" y="604" width="15" height="9" rx="2" fill="#2E9BC7"/>
+          <text x="138" y="612">WATER</text>
+          <rect x="200" y="604" width="15" height="9" rx="2" fill="#2E9BC7" fill-opacity=".22"/>
+          <text x="220" y="612">WATER DAMAGE</text>
+          <rect x="330" y="604" width="15" height="9" rx="2" fill="none" stroke="#A7ACB0" stroke-width="1"/>
+          <text x="350" y="612">DRY</text>
+        </g>
+      </svg>
+    </div>
   </div>
   <div class="intro-mark">
     <div class="intro-mark-row">
@@ -862,33 +1012,23 @@
     </div>
   </div>
 
-  <div class="blueprint">
-    <svg class="hero-plan" viewBox="0 0 720 560" aria-label="Floor plan of a water-damaged room being scanned and documented, with the damage clearing as the scan passes">
-      <defs>
-        <pattern id="heroGrid" width="18" height="18" patternUnits="userSpaceOnUse">
-          <path d="M18 0H0V18" fill="none" stroke="#C7CBCE" stroke-width=".7"/>
-        </pattern>
-        <radialGradient id="stainGrad" cx="46%" cy="50%" r="60%">
-          <stop offset="0" stop-color="#1F7FA6" stop-opacity=".40"/>
-          <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".24"/>
-          <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#2E9BC7" stop-opacity="0"/>
-          <stop offset=".5" stop-color="#2E9BC7" stop-opacity=".9"/>
-          <stop offset="1" stop-color="#2E9BC7" stop-opacity="0"/>
-        </linearGradient>
-        <clipPath id="restoreClip">
-          <rect x="283" y="286" width="372" height="176">
-            <animate attributeName="x" from="283" to="655" begin="0.55s" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.45 0 0.2 1"/>
-            <animate attributeName="width" from="372" to="0" begin="0.55s" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.45 0 0.2 1"/>
-          </rect>
-        </clipPath>
-      </defs>
+  <div class="blueprint-wrap">
+    <div class="plan-flat">
+      <svg class="hero-plan" viewBox="0 0 720 560" aria-label="A floor plan drawing itself in, before opening up into a cutaway view">
+        <defs>
+          <pattern id="heroGrid" width="18" height="18" patternUnits="userSpaceOnUse">
+            <path d="M18 0H0V18" fill="none" stroke="#C7CBCE" stroke-width=".7"/>
+          </pattern>
+          <radialGradient id="stainGrad" cx="46%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#1F7FA6" stop-opacity=".40"/>
+            <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".24"/>
+            <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
 
-      <rect x="73" y="55" width="594" height="435" fill="url(#heroGrid)" class="room-grid"/>
+        <rect x="73" y="55" width="594" height="435" fill="url(#heroGrid)" class="room-grid"/>
 
-      <!-- exterior and interior walls -->
+        <!-- exterior and interior walls -->
       <path class="wall bp-line" style="--len:2800;animation-delay:.15s" d="M76 56H666V488H76V56Z"/>
       <path class="wall bp-line" style="--len:590;animation-delay:.23s" d="M244 56V202M244 245V356M244 398V488"/>
       <path class="wall bp-line" style="--len:560;animation-delay:.30s" d="M410 56V166M410 210V488"/>
@@ -906,19 +1046,6 @@
         <g><rect class="window" x="660" y="112" width="12" height="62"/><line class="window-line" x1="666" y1="118" x2="666" y2="168"/></g>
         <g><rect class="window" x="660" y="352" width="12" height="64"/><line class="window-line" x1="666" y1="358" x2="666" y2="410"/></g>
         <g><rect class="window" x="112" y="482" width="68" height="12"/><line class="window-line" x1="118" y1="488" x2="174" y2="488"/></g>
-      </g>
-
-      <!-- bathroom fixtures -->
-      <g class="bp-fade" style="animation-delay:.86s">
-        <rect class="fixture" x="427" y="72" width="63" height="31" rx="15"/>
-        <ellipse class="fixture" cx="455" cy="140" rx="13" ry="17"/>
-        <ellipse class="fixture" cx="476" cy="140" rx="13" ry="17"/>
-        <rect class="fixture" x="431" y="181" width="49" height="18" rx="3"/>
-        <circle class="fixture" cx="454" cy="190" r="5"/>
-        <ellipse class="fixture" cx="456" cy="444" rx="14" ry="18"/>
-        <ellipse class="fixture" cx="520" cy="444" rx="14" ry="18"/>
-        <rect class="fixture" x="438" y="411" width="92" height="22" rx="3"/>
-        <circle class="fixture" cx="484" cy="422" r="6"/>
       </g>
 
       <!-- door leaves and swings -->
@@ -941,44 +1068,105 @@
         <text class="dimension-text" x="350" y="531">48'-0"</text>
       </g>
 
-      <!-- water-damage stain: fades in, then is revealed-clean as the scan sweeps across -->
-      <g class="damage" clip-path="url(#restoreClip)">
-        <path class="damage-fill" d="M306 344C350 306 401 292 458 304C508 314 554 294 606 320C645 340 655 382 624 414C590 449 538 438 494 431C446 423 406 445 359 429C317 415 283 375 306 344Z"/>
-        <path class="damage-crack" d="M368 350C384 362 372 378 390 388C404 396 398 408 412 414"/>
-        <path class="damage-crack" d="M470 335C486 344 480 356 498 362"/>
-      </g>
+      </svg>
+    </div>
+    <div class="plan-cutaway">
+<svg id="heroCutaway" class="cutaway-plan" viewBox="0 0 480 640" aria-label="A cutaway illustration of a building showing a roof leak seeping down through a wall cavity and pooling under the floor">
+        <defs>
+          <radialGradient id="stainGradCW" cx="46%" cy="50%" r="60%">
+            <stop offset="0" stop-color="#1F7FA6" stop-opacity=".45"/>
+            <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".26"/>
+            <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
 
-      <!-- scan sweep that reveals the restored state -->
-      <rect class="scan-bar" x="283" y="286" width="4" height="176" fill="url(#scanGrad)">
-        <animate attributeName="x" from="283" to="651" begin="0.55s" dur="1.6s" calcMode="spline" keySplines="0.45 0 0.2 1" fill="freeze"/>
-      </rect>
+        <!-- roof, corner posts, ground line -->
+        <path class="cw-line" style="--len:350; animation-delay:2.9s" d="M100,150 L240,50 L380,150"/>
+        <path class="cw-line" style="--len:410; animation-delay:3.05s" d="M100,150 L100,560"/>
+        <path class="cw-line" style="--len:410; animation-delay:3.1s" d="M380,150 L380,560"/>
+        <path class="cw-ground cw-line" style="--len:300; animation-delay:3.2s" d="M90,560 L390,560"/>
 
-      <!-- moisture-meter probe flicks, just ahead of each reading -->
-      <g class="probe-flick" style="animation-delay:1.70s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M352 342L352 350M360 342L360 350M352 342L360 342M356 342L356 334"/>
-      </g>
-      <g class="probe-flick" style="animation-delay:2.05s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M466 326L466 334M474 326L474 334M466 326L474 326M470 326L470 318"/>
-      </g>
-      <g class="probe-flick" style="animation-delay:2.40s" stroke="#23262A" stroke-width="1.3" fill="none" stroke-linecap="round">
-        <path d="M584 310L584 318M592 310L592 318M584 310L592 310M588 310L588 302"/>
-      </g>
+        <!-- level 1 (attic / ceiling) -->
+        <g class="cw-slab" style="animation-delay:3.35s">
+          <path class="cw-slab-edge" d="M130,254 L350,254 L350,264 L130,264 Z"/>
+          <path class="cw-slab-face" d="M100,230 L380,230 L350,254 L130,254 Z"/>
+        </g>
+        <!-- level 2 (mid floor) -->
+        <g class="cw-slab" style="animation-delay:3.55s">
+          <path class="cw-slab-edge" d="M130,404 L350,404 L350,414 L130,414 Z"/>
+          <path class="cw-slab-face" d="M100,380 L380,380 L350,404 L130,404 Z"/>
+        </g>
+        <!-- level 3 (ground floor) -->
+        <g class="cw-slab" style="animation-delay:3.75s">
+          <path class="cw-slab-edge" d="M130,544 L350,544 L350,554 L130,554 Z"/>
+          <path class="cw-slab-face" d="M100,520 L380,520 L350,544 L130,544 Z"/>
+        </g>
 
-      <!-- moisture-content readings, settling as each spot is documented dry -->
-      <g class="doc-pin" style="animation-delay:1.95s">
-        <rect x="336" y="358" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="34" data-to="8" data-start="1.95" data-duration="0.6" x="356" y="372" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">34%</text>
-      </g>
-      <g class="doc-pin" style="animation-delay:2.30s">
-        <rect x="450" y="342" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="29" data-to="6" data-start="2.30" data-duration="0.6" x="470" y="356" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">29%</text>
-      </g>
-      <g class="doc-pin" style="animation-delay:2.65s">
-        <circle class="doc-pin-ring live" cx="588" cy="336" r="16"/>
-        <rect x="568" y="326" width="40" height="20" rx="10" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
-        <text class="mc-value" data-from="22" data-to="11" data-start="2.65" data-duration="0.6" x="588" y="340" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="600" fill="#17181B">22%</text>
-      </g>
-    </svg>
+        <!-- water damage layer (toggleable) -->
+        <g class="cutaway-damage">
+          <!-- roof leak, pooling under the ridge -->
+          <path class="cw-puddle" style="animation-delay:3.95s" fill="url(#stainGradCW)" d="M205,188C214,177 234,174 254,179C269,183 284,177 294,189C299,197 291,204 279,206C264,209 249,202 234,207C219,211 200,203 205,188Z"/>
+          <path class="cw-drip" style="--len:22; animation-delay:4.1s" d="M222,207 L222,228"/>
+          <circle class="cw-droplet" style="animation-delay:4.25s" cx="222" cy="232" r="2.4"/>
+          <path class="cw-drip" style="--len:26; animation-delay:4.15s" d="M248,209 L248,234"/>
+          <circle class="cw-droplet" style="animation-delay:4.3s" cx="248" cy="238" r="2.4"/>
+          <path class="cw-drip" style="--len:20; animation-delay:4.2s" d="M272,206 L272,225"/>
+          <circle class="cw-droplet" style="animation-delay:4.35s" cx="272" cy="229" r="2.4"/>
+
+          <!-- pool sitting on level 1's top face -->
+          <path class="cw-puddle" style="animation-delay:4.45s" fill="url(#stainGradCW)" d="M152,239C161,234 174,235 181,241C184,245 179,249 171,248C163,247 155,246 152,239Z"/>
+
+          <!-- wicking up the cavity between level 1 and level 2 -->
+          <path class="cw-stain" style="animation-delay:4.6s" d="M93,258C89,288 91,328 97,373C98,384 106,384 105,373C101,330 103,296 107,260C106,254 96,253 93,258Z"/>
+          <path class="cw-stain" style="animation-delay:4.68s" d="M373,258C369,288 371,328 377,373C378,384 386,384 385,373C381,330 383,296 387,260C386,254 376,253 373,258Z"/>
+
+          <!-- pool sitting on level 2's top face -->
+          <path class="cw-puddle" style="animation-delay:4.8s" fill="url(#stainGradCW)" d="M292,388C301,383 314,384 321,390C324,394 319,398 311,397C303,396 295,395 292,388Z"/>
+
+          <!-- wicking continues between level 2 and level 3 -->
+          <path class="cw-stain" style="animation-delay:4.95s" d="M93,408C89,438 91,478 97,518C98,526 106,526 105,518C101,480 103,446 107,410C106,404 96,403 93,408Z"/>
+          <path class="cw-stain" style="animation-delay:5.03s" d="M373,408C369,438 371,478 377,518C378,526 386,526 385,518C381,480 383,446 387,410C386,404 376,403 373,408Z"/>
+
+          <!-- trapped water beneath the flooring on level 3 -->
+          <path class="cw-sliver" style="animation-delay:5.15s" d="M130,557 C160,564 200,551 240,559 C280,567 320,553 350,561 L350,567 C320,575 280,565 240,567 C200,559 160,571 130,565 Z"/>
+          <path class="cw-puddle" style="animation-delay:5.25s" fill="url(#stainGradCW)" d="M222,527C234,521 250,523 259,530C263,535 257,540 246,539C235,538 224,536 222,527Z"/>
+
+          <!-- labelled callouts -->
+          <path class="cw-leader" style="animation-delay:5.4s" d="M92,182 L200,190"/>
+          <text class="cw-label" style="animation-delay:5.45s" x="8" y="172">CEILING LEAK</text>
+          <text class="cw-label" style="animation-delay:5.45s" x="8" y="184">&amp; POOLING</text>
+
+          <path class="cw-leader" style="animation-delay:5.5s" d="M92,300 L100,300"/>
+          <text class="cw-label" style="animation-delay:5.55s" x="8" y="296">WICKING UP</text>
+          <text class="cw-label" style="animation-delay:5.55s" x="8" y="308">DRYWALL</text>
+
+          <path class="cw-leader" style="animation-delay:5.6s" d="M388,440 L318,393"/>
+          <text class="cw-label" style="animation-delay:5.65s" x="472" y="436" text-anchor="end">ACCUMULATION</text>
+          <text class="cw-label" style="animation-delay:5.65s" x="472" y="448" text-anchor="end">IN CAVITY</text>
+
+          <path class="cw-leader" style="animation-delay:5.7s" d="M92,575 L132,563"/>
+          <text class="cw-label" style="animation-delay:5.75s" x="8" y="571">TRAPPED BENEATH</text>
+          <text class="cw-label" style="animation-delay:5.75s" x="8" y="583">FLOORING</text>
+        </g>
+
+        <!-- legend -->
+        <g class="cw-legend" style="animation-delay:5.9s">
+          <rect x="118" y="604" width="15" height="9" rx="2" fill="#2E9BC7"/>
+          <text x="138" y="612">WATER</text>
+          <rect x="200" y="604" width="15" height="9" rx="2" fill="#2E9BC7" fill-opacity=".22"/>
+          <text x="220" y="612">WATER DAMAGE</text>
+          <rect x="330" y="604" width="15" height="9" rx="2" fill="none" stroke="#A7ACB0" stroke-width="1"/>
+          <text x="350" y="612">DRY</text>
+        </g>
+      </svg>
+    </div>
+    <div class="plan-toggle" id="planToggle" data-checked="true">
+      <span class="plan-toggle-label" data-state="wet">Water damage</span>
+      <button class="plan-toggle-switch" id="planToggleBtn" type="button" role="switch" aria-checked="true" aria-label="Toggle water damage on the cutaway diagram">
+        <span class="plan-toggle-knob"></span>
+      </button>
+      <span class="plan-toggle-label" data-state="dry">Dry</span>
+    </div>
   </div>
 </section>
 
@@ -1059,9 +1247,10 @@
   (function(){
     var intro = document.getElementById('intro');
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var forceReplay = /[?&]intro\b/.test(window.location.search);
     var playedThisSession = sessionStorage.getItem('struvaeIntroPlayed');
 
-    if(reduceMotion || playedThisSession){
+    if(reduceMotion || (playedThisSession && !forceReplay)){
       document.body.classList.add('no-intro');
       intro.remove();
     } else {
@@ -1071,28 +1260,21 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 5300);
+      }, 7600);
     }
   })();
 
-  // ---- Moisture reading count animation ----
+  // ---- Dry / water-damage toggle ----
   (function(){
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    document.querySelectorAll('.mc-value').forEach(function(el){
-      var from = parseFloat(el.dataset.from);
-      var to = parseFloat(el.dataset.to);
-      if(reduceMotion){ el.textContent = to + '%'; return; }
-      var start = parseFloat(el.dataset.start) * 1000;
-      var duration = parseFloat(el.dataset.duration) * 1000;
-      setTimeout(function(){
-        var t0 = performance.now();
-        function tick(now){
-          var p = Math.min(1, (now - t0) / duration);
-          el.textContent = Math.round(from + (to - from) * p) + '%';
-          if(p < 1) requestAnimationFrame(tick);
-        }
-        requestAnimationFrame(tick);
-      }, start);
+    var wrap = document.getElementById('planToggle');
+    var btn = document.getElementById('planToggleBtn');
+    var svg = document.getElementById('heroCutaway');
+    if(!wrap || !btn || !svg) return;
+    btn.addEventListener('click', function(){
+      var dry = svg.classList.toggle('hide-damage');
+      var showingDamage = !dry;
+      btn.setAttribute('aria-checked', String(showingDamage));
+      wrap.setAttribute('data-checked', String(showingDamage));
     });
   })();
 
