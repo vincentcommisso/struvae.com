@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Restoration Software</title>
 <meta name="description" content="Struvae is the connected system behind every restoration job — scoping, documentation, and the tools crews open in the field. First up: Struvae Capture.">
-<meta name="theme-color" content="#1E1B17">
+<meta name="theme-color" content="#17181B">
 
 <!-- Favicons — place these files alongside index.html at your repo root -->
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -15,29 +15,29 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <meta name="msapplication-TileImage" content="mstile-150x150.png">
-<meta name="msapplication-TileColor" content="#1E1B17">
+<meta name="msapplication-TileColor" content="#17181B">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
   :root{
-    /* palette pulled directly from the Struvae mark */
-    --paper: #FAF6EC;
+    /* palette pulled directly from the Struvae mark, cooled and lightened off the beige */
+    --paper: #F9FAF9;
     --paper-raised: #FFFFFF;
-    --ink: #1E1B17;
-    --ink-soft: #59524A;
-    --muted: #948B7C;
-    --line: rgba(30,27,23,0.09);
-    --line-strong: rgba(30,27,23,0.18);
+    --ink: #17181B;
+    --ink-soft: #565B60;
+    --muted: #90959A;
+    --line: rgba(23,24,27,0.08);
+    --line-strong: rgba(23,24,27,0.17);
     --capture: #2E9BC7;
     --capture-soft: rgba(46,155,199,0.09);
     --estimate: #C68A2E;
     --ops: #8467C9;
     --report: #3F9E6D;
-    --stain: #9C6B34;
-    --stain-soft: rgba(156,107,52,.14);
-    --bp-line: #262320;
-    --bp-dim: #ABA294;
+    --stain: #2E9BC7;
+    --stain-soft: rgba(46,155,199,.14);
+    --bp-line: #23262A;
+    --bp-dim: #A7ACB0;
   }
 
   *{ box-sizing: border-box; margin:0; padding:0; }
@@ -62,8 +62,8 @@
     z-index: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse 65% 46% at 14% -8%, rgba(46,155,199,.06), transparent 60%),
-      radial-gradient(ellipse 55% 40% at 100% 6%, rgba(156,107,52,.045), transparent 65%);
+      radial-gradient(ellipse 65% 46% at 14% -8%, rgba(46,155,199,.055), transparent 60%),
+      radial-gradient(ellipse 55% 40% at 100% 6%, rgba(46,155,199,.03), transparent 65%);
   }
   .bg-watermark{
     position: fixed;
@@ -94,76 +94,39 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: var(--ink);
+    background: var(--paper);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 640ms cubic-bezier(.4,0,.2,1), transform 640ms cubic-bezier(.4,0,.2,1);
+    transition: opacity 750ms cubic-bezier(.4,0,.2,1), transform 750ms cubic-bezier(.4,0,.2,1);
   }
   #intro.intro-hide{
     opacity: 0;
     transform: scale(1.035);
     pointer-events: none;
   }
-  .intro-inner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+  .intro-plan-wrap{
+    width: min(76vw, 580px);
   }
-  .intro-ring-wrap{
-    position: relative;
-    width: 96px;
-    height: 96px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .intro-plan-wrap svg{ width: 100%; height: auto; display: block; overflow: visible; }
   .intro-mark{
-    width: 68px;
-    height: 68px;
-    border-radius: 16px;
-    opacity: 0;
-    transform: scale(.82);
-    animation: introIconIn 520ms cubic-bezier(.2,.8,.2,1) 60ms forwards;
-    display: block;
-  }
-  .intro-ring{
     position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 1.4px solid var(--capture);
-    opacity: 0;
-    animation: introRingPulse 900ms ease-out 380ms forwards;
-  }
-  @keyframes introIconIn{ to{ opacity: 1; transform: scale(1); } }
-  @keyframes introRingPulse{
-    0%{ opacity: .85; transform: scale(.55); }
-    100%{ opacity: 0; transform: scale(2.5); }
-  }
-  .intro-text{
+    left: 50%;
+    bottom: 11%;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     opacity: 0;
-    transform: translateY(8px);
-    animation: fadeUp 520ms ease 520ms forwards;
+    animation: fadeUp 520ms ease 3.05s forwards;
   }
-  .intro-brand-name{
+  .intro-mark img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
+  .intro-mark span{
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: 0.15px;
-    color: var(--paper);
-  }
-  .intro-tagline{
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    font-size: 10.5px;
-    letter-spacing: 1.7px;
-    text-transform: uppercase;
-    color: var(--capture);
+    color: var(--ink);
   }
 
   /* ---------- nav ---------- */
@@ -256,7 +219,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 620ms ease 1.3s forwards;
+    animation: fadeUp 620ms ease 3.45s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -276,8 +239,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 1.42s; }
-  h1 .line:nth-child(2){ animation-delay: 1.54s; }
+  h1 .line:nth-child(1){ animation-delay: 3.58s; }
+  h1 .line:nth-child(2){ animation-delay: 3.70s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -287,14 +250,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 620ms ease 1.66s forwards;
+    animation: fadeUp 620ms ease 3.82s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 620ms ease 1.78s forwards;
+    animation: fadeUp 620ms ease 3.94s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -358,16 +321,16 @@
   @keyframes bpFade{ to{ opacity: 1; } }
 
   /* reference-style hero restoration plan */
-  .hero-plan .wall{fill:none;stroke:#262320;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter;}
-  .hero-plan .wall-thin{fill:none;stroke:#262320;stroke-width:3.4;stroke-linecap:square;}
-  .hero-plan .fixture{fill:none;stroke:#8b8377;stroke-width:1.55;}
-  .hero-plan .door-leaf{fill:none;stroke:#3d3830;stroke-width:2.1;}
-  .hero-plan .door-swing{fill:none;stroke:#aca496;stroke-width:1.15;stroke-dasharray:4 4;}
-  .hero-plan .window{fill:#fff;stroke:#262320;stroke-width:2.2;}
+  .hero-plan .wall{fill:none;stroke:#23262A;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter;}
+  .hero-plan .wall-thin{fill:none;stroke:#23262A;stroke-width:3.4;stroke-linecap:square;}
+  .hero-plan .fixture{fill:none;stroke:#888D91;stroke-width:1.55;}
+  .hero-plan .door-leaf{fill:none;stroke:#34383C;stroke-width:2.1;}
+  .hero-plan .door-swing{fill:none;stroke:#A7ACB0;stroke-width:1.15;stroke-dasharray:4 4;}
+  .hero-plan .window{fill:#fff;stroke:#23262A;stroke-width:2.2;}
   .hero-plan .window-line{stroke:#2E9BC7;stroke-width:1.3;}
-  .hero-plan .dimension{fill:none;stroke:#aba296;stroke-width:1;}
-  .hero-plan .dimension-text{font:11px 'IBM Plex Mono',monospace;fill:#78705f;letter-spacing:.4px;}
-  .hero-plan .room-grid{opacity:.3;}
+  .hero-plan .dimension{fill:none;stroke:#A7ACB0;stroke-width:1;}
+  .hero-plan .dimension-text{font:11px 'IBM Plex Mono',monospace;fill:#767B80;letter-spacing:.4px;}
+  .hero-plan .room-grid{opacity:.28;}
 
   /* ---------- restoration reveal: stain fades as the scan passes ---------- */
   .hero-plan .damage{
@@ -375,7 +338,7 @@
     animation: damageIn 480ms ease 1.05s forwards;
   }
   .hero-plan .damage-fill{ fill: url(#stainGrad); }
-  .hero-plan .damage-crack{ fill:none; stroke: rgba(120,86,44,.42); stroke-width: 1.1; stroke-linecap: round; }
+  .hero-plan .damage-crack{ fill:none; stroke: rgba(26,88,116,.42); stroke-width: 1.1; stroke-linecap: round; }
   @keyframes damageIn{ to{ opacity: 1; } }
 
   .hero-plan .scan-bar{
@@ -504,10 +467,11 @@
     flex-direction: column;
     min-height: 210px;
     position: relative;
-    transition: background 220ms ease, box-shadow 220ms ease;
+    border: 1px solid transparent;
+    transition: background 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   }
   .product.live{ box-shadow: inset 0 3px 0 var(--capture); }
-  .product:hover{ background: #FDFCF8; }
+  .product:hover{ background: #FDFDFC; border-color: rgba(23,24,27,0.32); }
   .product .stage-tag{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
@@ -558,7 +522,7 @@
   .product{
     overflow: hidden;
     isolation: isolate;
-    transition: transform 260ms cubic-bezier(.2,.8,.2,1), background 220ms ease, box-shadow 260ms ease;
+    transition: transform 260ms cubic-bezier(.2,.8,.2,1), background 220ms ease, box-shadow 260ms ease, border-color 220ms ease;
   }
   .product::after{
     content: "";
@@ -740,15 +704,69 @@
 
 <!-- ================= OPENING SEQUENCE ================= -->
 <div id="intro" aria-hidden="true">
-  <div class="intro-inner">
-    <div class="intro-ring-wrap">
-      <div class="intro-ring"></div>
-      <img class="intro-mark" src="struvae-mark.png" alt="">
-    </div>
-    <div class="intro-text">
-      <span class="intro-brand-name">Struvae.</span>
-      <span class="intro-tagline">Restoration software</span>
-    </div>
+  <div class="intro-plan-wrap">
+    <svg class="hero-plan" viewBox="0 0 720 560" aria-label="A floor plan drawing itself in, with a water-damaged area highlighted in blue and then cleared as it is scanned">
+      <!-- exterior and interior walls -->
+      <path class="wall bp-line" style="--len:2800;animation-delay:.15s" d="M76 56H666V488H76V56Z"/>
+      <path class="wall bp-line" style="--len:590;animation-delay:.23s" d="M244 56V202M244 245V356M244 398V488"/>
+      <path class="wall bp-line" style="--len:560;animation-delay:.30s" d="M410 56V166M410 210V488"/>
+      <path class="wall bp-line" style="--len:540;animation-delay:.37s" d="M244 202H410M76 356H244M410 306H666"/>
+      <path class="wall bp-line" style="--len:360;animation-delay:.44s" d="M500 56V166M500 210V306M410 166H500"/>
+      <path class="wall bp-line" style="--len:290;animation-delay:.51s" d="M500 210H586M628 210H666"/>
+      <path class="wall bp-line" style="--len:280;animation-delay:.58s" d="M76 245H152M194 245H244"/>
+      <path class="wall bp-line" style="--len:260;animation-delay:.65s" d="M410 398H492M534 398H666"/>
+
+      <!-- windows -->
+      <g class="bp-fade" style="animation-delay:.78s">
+        <g><rect class="window" x="116" y="50" width="58" height="12"/><line class="window-line" x1="121" y1="56" x2="169" y2="56"/></g>
+        <g><rect class="window" x="294" y="50" width="54" height="12"/><line class="window-line" x1="299" y1="56" x2="343" y2="56"/></g>
+        <g><rect class="window" x="542" y="50" width="70" height="12"/><line class="window-line" x1="548" y1="56" x2="606" y2="56"/></g>
+        <g><rect class="window" x="660" y="112" width="12" height="62"/><line class="window-line" x1="666" y1="118" x2="666" y2="168"/></g>
+        <g><rect class="window" x="660" y="352" width="12" height="64"/><line class="window-line" x1="666" y1="358" x2="666" y2="410"/></g>
+        <g><rect class="window" x="112" y="482" width="68" height="12"/><line class="window-line" x1="118" y1="488" x2="174" y2="488"/></g>
+      </g>
+
+      <!-- door leaves and swings -->
+      <g class="bp-fade" style="animation-delay:.93s">
+        <path class="door-leaf" d="M244 202H286"/><path class="door-swing" d="M244 245A43 43 0 0 1 287 202"/>
+        <path class="door-leaf" d="M410 166H453"/><path class="door-swing" d="M410 210A44 44 0 0 1 454 166"/>
+        <path class="door-leaf" d="M152 245V287"/><path class="door-swing" d="M194 245A42 42 0 0 0 152 287"/>
+        <path class="door-leaf" d="M492 398V440"/><path class="door-swing" d="M534 398A42 42 0 0 0 492 440"/>
+        <path class="door-leaf" d="M586 210V252"/><path class="door-swing" d="M628 210A42 42 0 0 0 586 252"/>
+        <path class="door-leaf" d="M244 356H287"/><path class="door-swing" d="M244 398A42 42 0 0 1 286 356"/>
+      </g>
+
+      <!-- water-damage stain: fades in, then is revealed-clean as the scan sweeps across -->
+      <g class="damage" clip-path="url(#restoreClip)">
+        <path class="damage-fill" d="M306 344C350 306 401 292 458 304C508 314 554 294 606 320C645 340 655 382 624 414C590 449 538 438 494 431C446 423 406 445 359 429C317 415 283 375 306 344Z"/>
+        <path class="damage-crack" d="M368 350C384 362 372 378 390 388C404 396 398 408 412 414"/>
+        <path class="damage-crack" d="M470 335C486 344 480 356 498 362"/>
+      </g>
+
+      <!-- scan sweep that reveals the restored state -->
+      <rect class="scan-bar" x="283" y="286" width="4" height="176" fill="url(#scanGrad)">
+        <animate attributeName="x" from="283" to="651" begin="0.55s" dur="1.6s" calcMode="spline" keySplines="0.45 0 0.2 1" fill="freeze"/>
+      </rect>
+
+      <!-- documentation pins left behind once an area is scanned -->
+      <g class="doc-pin" style="animation-delay:2.35s">
+        <circle cx="356" cy="368" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <path d="M352 368l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.55s">
+        <circle cx="470" cy="352" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <path d="M466 352l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g class="doc-pin" style="animation-delay:2.75s">
+        <circle class="doc-pin-ring live" cx="588" cy="336" r="9"/>
+        <circle cx="588" cy="336" r="9" fill="#fff" stroke="#2E9BC7" stroke-width="2"/>
+        <path d="M584 336l3 3 6-6" fill="none" stroke="#2E9BC7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </div>
+  <div class="intro-mark">
+    <img src="struvae-mark.png" alt="">
+    <span>Struvae.</span>
   </div>
 </div>
 
@@ -797,12 +815,12 @@
     <svg class="hero-plan" viewBox="0 0 720 560" aria-label="Floor plan of a water-damaged room being scanned and documented, with the damage clearing as the scan passes">
       <defs>
         <pattern id="heroGrid" width="18" height="18" patternUnits="userSpaceOnUse">
-          <path d="M18 0H0V18" fill="none" stroke="#c9beac" stroke-width=".7"/>
+          <path d="M18 0H0V18" fill="none" stroke="#C7CBCE" stroke-width=".7"/>
         </pattern>
         <radialGradient id="stainGrad" cx="46%" cy="50%" r="60%">
-          <stop offset="0" stop-color="#9c6b34" stop-opacity=".38"/>
-          <stop offset=".55" stop-color="#b98548" stop-opacity=".22"/>
-          <stop offset="1" stop-color="#c99a5f" stop-opacity="0"/>
+          <stop offset="0" stop-color="#1F7FA6" stop-opacity=".40"/>
+          <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".24"/>
+          <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
         </radialGradient>
         <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#2E9BC7" stop-opacity="0"/>
@@ -990,8 +1008,8 @@
       setTimeout(function(){
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
-        setTimeout(function(){ intro.remove(); }, 700);
-      }, 1500);
+        setTimeout(function(){ intro.remove(); }, 800);
+      }, 3450);
     }
   })();
 
