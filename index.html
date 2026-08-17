@@ -369,13 +369,7 @@
   .hero-plan .fan-ring{ fill: var(--paper-raised); stroke: var(--ink); stroke-width: 1.8; }
   .hero-plan .fan-base{ fill: var(--ink); }
   .hero-plan .fan-hub{ fill: var(--ink); }
-  .hero-plan .fan-blades{
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: fanSpin 900ms linear var(--d) infinite;
-  }
   .hero-plan .fan-blades line{ stroke: var(--capture); stroke-width: 1.9; stroke-linecap: round; }
-  @keyframes fanSpin{ to{ transform: rotate(360deg); } }
   .hero-plan .dehum-body{ fill: var(--paper-raised); stroke: var(--ink); stroke-width: 1.6; }
   .hero-plan .dehum-vent{ fill: none; stroke: var(--ink); stroke-width: 1.2; }
   .hero-plan .dehum-drop{ fill: var(--capture); animation: dropPulse 1.6s ease-in-out var(--d) infinite; }
@@ -785,8 +779,8 @@
           <path fill="url(#in-fp)" d="M298 118C332 96 384 92 424 110C456 124 474 152 454 174C430 200 380 190 344 182C310 174 280 146 298 118Z"/>
         </g>
 
-        <!-- drying equipment, placed once the affected rooms are identified -->
-        <g class="equip equip-fan" style="--d:1.75s" transform="translate(392,380)">
+        <!-- drying equipment, ringed around the perimeter of each wet area -->
+        <g class="equip equip-fan" style="--d:1.75s" transform="translate(330,330)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="in-b1">
@@ -794,15 +788,11 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="1.75s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
-        <g class="equip equip-dehum" style="--d:1.92s" transform="translate(478,358)">
-          <rect class="dehum-body" x="-10" y="-15" width="20" height="28" rx="3"/>
-          <rect class="dehum-vent" x="-6" y="-10" width="12" height="5" rx="1"/>
-          <path class="dehum-drop" d="M0,1 C-3.4,5.6 -3.4,9.4 0,9.4 C3.4,9.4 3.4,5.6 0,1 Z"/>
-        </g>
-        <g class="equip equip-fan" style="--d:2.05s" transform="translate(548,400)">
+        <g class="equip equip-fan" style="--d:1.95s" transform="translate(600,335)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="in-b2">
@@ -810,10 +800,16 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="1.95s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
-        <g class="equip equip-fan" style="--d:2.22s" transform="translate(362,148)">
+        <g class="equip equip-dehum" style="--d:2.1s" transform="translate(478,358)">
+          <rect class="dehum-body" x="-10" y="-15" width="20" height="28" rx="3"/>
+          <rect class="dehum-vent" x="-6" y="-10" width="12" height="5" rx="1"/>
+          <path class="dehum-drop" d="M0,1 C-3.4,5.6 -3.4,9.4 0,9.4 C3.4,9.4 3.4,5.6 0,1 Z"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.25s" transform="translate(430,435)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="in-b3">
@@ -821,6 +817,31 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.25s" dur="0.9s" repeatCount="indefinite"/>
+          </g>
+          <circle class="fan-hub" r="2.6"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.42s" transform="translate(320,158)">
+          <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
+          <circle class="fan-ring" r="15"/>
+          <g class="fan-blades" id="in-b4">
+            <line x1="0" y1="-11" x2="0" y2="11"/>
+            <line x1="-11" y1="0" x2="11" y2="0"/>
+            <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
+            <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.42s" dur="0.9s" repeatCount="indefinite"/>
+          </g>
+          <circle class="fan-hub" r="2.6"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.58s" transform="translate(430,128)">
+          <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
+          <circle class="fan-ring" r="15"/>
+          <g class="fan-blades" id="in-b5">
+            <line x1="0" y1="-11" x2="0" y2="11"/>
+            <line x1="-11" y1="0" x2="11" y2="0"/>
+            <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
+            <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.58s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
@@ -937,8 +958,8 @@
           <path fill="url(#he-fp)" d="M298 118C332 96 384 92 424 110C456 124 474 152 454 174C430 200 380 190 344 182C310 174 280 146 298 118Z"/>
         </g>
 
-        <!-- drying equipment, placed once the affected rooms are identified -->
-        <g class="equip equip-fan" style="--d:1.75s" transform="translate(392,380)">
+        <!-- drying equipment, ringed around the perimeter of each wet area -->
+        <g class="equip equip-fan" style="--d:1.75s" transform="translate(330,330)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="he-b1">
@@ -946,15 +967,11 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="1.75s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
-        <g class="equip equip-dehum" style="--d:1.92s" transform="translate(478,358)">
-          <rect class="dehum-body" x="-10" y="-15" width="20" height="28" rx="3"/>
-          <rect class="dehum-vent" x="-6" y="-10" width="12" height="5" rx="1"/>
-          <path class="dehum-drop" d="M0,1 C-3.4,5.6 -3.4,9.4 0,9.4 C3.4,9.4 3.4,5.6 0,1 Z"/>
-        </g>
-        <g class="equip equip-fan" style="--d:2.05s" transform="translate(548,400)">
+        <g class="equip equip-fan" style="--d:1.95s" transform="translate(600,335)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="he-b2">
@@ -962,10 +979,16 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="1.95s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
-        <g class="equip equip-fan" style="--d:2.22s" transform="translate(362,148)">
+        <g class="equip equip-dehum" style="--d:2.1s" transform="translate(478,358)">
+          <rect class="dehum-body" x="-10" y="-15" width="20" height="28" rx="3"/>
+          <rect class="dehum-vent" x="-6" y="-10" width="12" height="5" rx="1"/>
+          <path class="dehum-drop" d="M0,1 C-3.4,5.6 -3.4,9.4 0,9.4 C3.4,9.4 3.4,5.6 0,1 Z"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.25s" transform="translate(430,435)">
           <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
           <circle class="fan-ring" r="15"/>
           <g class="fan-blades" id="he-b3">
@@ -973,6 +996,31 @@
             <line x1="-11" y1="0" x2="11" y2="0"/>
             <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
             <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.25s" dur="0.9s" repeatCount="indefinite"/>
+          </g>
+          <circle class="fan-hub" r="2.6"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.42s" transform="translate(320,158)">
+          <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
+          <circle class="fan-ring" r="15"/>
+          <g class="fan-blades" id="he-b4">
+            <line x1="0" y1="-11" x2="0" y2="11"/>
+            <line x1="-11" y1="0" x2="11" y2="0"/>
+            <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
+            <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.42s" dur="0.9s" repeatCount="indefinite"/>
+          </g>
+          <circle class="fan-hub" r="2.6"/>
+        </g>
+        <g class="equip equip-fan" style="--d:2.58s" transform="translate(430,128)">
+          <rect class="fan-base" x="-4" y="15" width="8" height="4" rx="1"/>
+          <circle class="fan-ring" r="15"/>
+          <g class="fan-blades" id="he-b5">
+            <line x1="0" y1="-11" x2="0" y2="11"/>
+            <line x1="-11" y1="0" x2="11" y2="0"/>
+            <line x1="-7.8" y1="-7.8" x2="7.8" y2="7.8"/>
+            <line x1="-7.8" y1="7.8" x2="7.8" y2="-7.8"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="2.58s" dur="0.9s" repeatCount="indefinite"/>
           </g>
           <circle class="fan-hub" r="2.6"/>
         </g>
