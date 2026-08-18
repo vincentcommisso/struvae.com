@@ -127,7 +127,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 520ms ease 1.70s forwards;
+    animation: fadeUp 520ms ease 3.75s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -145,7 +145,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 520ms ease 1.85s forwards;
+    animation: fadeUp 520ms ease 3.95s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -153,7 +153,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 520ms ease 2.00s forwards;
+    animation: fadeUp 520ms ease 4.15s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -246,7 +246,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 620ms ease 2.90s forwards;
+    animation: fadeUp 620ms ease 4.90s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -266,8 +266,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 3.03s; }
-  h1 .line:nth-child(2){ animation-delay: 3.15s; }
+  h1 .line:nth-child(1){ animation-delay: 5.03s; }
+  h1 .line:nth-child(2){ animation-delay: 5.15s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -277,14 +277,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 620ms ease 3.28s forwards;
+    animation: fadeUp 620ms ease 5.28s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 620ms ease 3.40s forwards;
+    animation: fadeUp 620ms ease 5.40s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -318,7 +318,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 620ms ease 3.55s forwards;
+    animation: fadeUp 620ms ease 5.55s forwards;
   }
   .stat{
     display: flex;
@@ -373,54 +373,221 @@
     width: 100%;
   }
   .blueprint{
-    width: min(46vw, 640px);
-    max-width: 100%;
-    aspect-ratio: 720 / 560;
+    width: auto;
   }
-  .blueprint svg{ width: 100%; height: 100%; overflow: visible; display:block; }
 
-  .bp-line{
-    fill: none;
-    stroke: var(--bp-line);
-    stroke-width: 1.4;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: var(--len);
-    stroke-dashoffset: var(--len);
-    animation: draw 0.85s cubic-bezier(.4,0,.2,1) forwards;
-  }
-  .bp-line.accent{ stroke: var(--capture); }
-  .bp-dim{
-    stroke: var(--bp-dim);
-    stroke-width: 0.8;
-    stroke-dasharray: 3 3;
-  }
-  .bp-fade{
-    opacity: 0;
-    animation: bpFade 550ms ease forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
   @keyframes bpFade{ to{ opacity: 1; } }
 
-  /* reference-style hero restoration plan */
-  .hero-plan .wall{fill:none;stroke:#23262A;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter;}
-  .hero-plan .wall-thin{fill:none;stroke:#23262A;stroke-width:3.4;stroke-linecap:square;}
-  .hero-plan .fixture{fill:none;stroke:#888D91;stroke-width:1.55;}
-  .hero-plan .door-leaf{fill:none;stroke:#34383C;stroke-width:2.1;}
-  .hero-plan .door-swing{fill:none;stroke:#A7ACB0;stroke-width:1.15;stroke-dasharray:4 4;}
-  .hero-plan .window{fill:#fff;stroke:#23262A;stroke-width:2.2;}
-  .hero-plan .window-line{stroke:#2E9BC7;stroke-width:1.3;}
-  .hero-plan .dimension{fill:none;stroke:#A7ACB0;stroke-width:1;}
-  .hero-plan .dimension-text{font:11px 'IBM Plex Mono',monospace;fill:#767B80;letter-spacing:.4px;}
-  .hero-plan .room-grid{opacity:.28;}
 
+  /* ---------- widget stage: restoration tools converging into the app ---------- */
+  .widget-stage{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 1px; height: 1px;
+  }
+  .widget-card{
+    position: absolute;
+    top: 0; left: 0;
+    width: 168px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 16px 32px -14px rgba(23,24,27,0.28);
+    opacity: 0;
+  }
+  .widget-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .widget-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 7px; }
+  .widget-title-lg{ font-size: 22px; }
+  .widget-unit{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--ink-soft); margin-left: 2px; }
+  .widget-row{ display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+  .widget-meta{ font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .badge-cat{
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700;
+    background: rgba(63,158,109,.15); color: #2F7350;
+    padding: 2px 7px; border-radius: 6px; flex-shrink: 0;
+  }
+  .status-progress-static{ background: var(--capture); color: #fff; }
 
+  .widget-1{ animation: wFloat1 2.4s ease-in-out 0.3s forwards; }
+  .widget-2{ animation: wFloat2 2.4s ease-in-out 0.3s forwards; }
+  .widget-3{ animation: wFloat3 2.4s ease-in-out 0.3s forwards; }
+  .widget-4{ animation: wFloat4 2.4s ease-in-out 0.3s forwards; }
 
+  @keyframes wFloat1{
+    0%{     opacity: 0; transform: translate(-172px,-172px) scale(.8) rotate(-4deg); }
+    10%{    opacity: 1; transform: translate(-172px,-172px) scale(1)  rotate(-4deg); }
+    58%{    opacity: 1; transform: translate(-172px,-172px) scale(1)  rotate(-4deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes wFloat2{
+    0%,18%{ opacity: 0; transform: translate(16px,-190px) scale(.8) rotate(3deg); }
+    28%{    opacity: 1; transform: translate(16px,-190px) scale(1)  rotate(3deg); }
+    58%{    opacity: 1; transform: translate(16px,-190px) scale(1)  rotate(3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes wFloat3{
+    0%,30%{ opacity: 0; transform: translate(-180px,110px) scale(.8) rotate(3deg); }
+    40%{    opacity: 1; transform: translate(-180px,110px) scale(1)  rotate(3deg); }
+    58%{    opacity: 1; transform: translate(-180px,110px) scale(1)  rotate(3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes wFloat4{
+    0%,42%{ opacity: 0; transform: translate(20px,150px) scale(.8) rotate(-3deg); }
+    52%{    opacity: 1; transform: translate(20px,150px) scale(1)  rotate(-3deg); }
+    58%{    opacity: 1; transform: translate(20px,150px) scale(1)  rotate(-3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
 
+  /* ---------- phone mockup: materializes already populated ---------- */
+  .phone-mockup{
+    position: relative;
+    width: 300px;
+    height: 620px;
+    margin: 0 auto;
+  }
+  .phone-glow{
+    position: absolute;
+    inset: 10% -20% -6% -20%;
+    background: radial-gradient(ellipse 60% 55% at 50% 60%, rgba(46,155,199,.16), transparent 70%);
+    filter: blur(6px);
+    z-index: 0;
+  }
+  .phone-frame{
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 620px;
+    background: var(--ink);
+    border-radius: 38px;
+    padding: 10px;
+    box-shadow: 0 30px 60px -20px rgba(23,24,27,0.35), 0 10px 24px -10px rgba(23,24,27,0.2);
+    opacity: 0;
+    transform: scale(.72) rotate(-2deg);
+    animation: phoneIn 550ms cubic-bezier(.2,.8,.2,1) 2.55s forwards;
+  }
+  @keyframes phoneIn{ to{ opacity: 1; transform: scale(1) rotate(-2deg); } }
+  .phone-notch{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 22px;
+    background: var(--ink);
+    border-radius: 0 0 16px 16px;
+    z-index: 3;
+  }
+  .phone-screen{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--paper-raised);
+    border-radius: 28px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
 
-  /* water damage on the plan */
-  .hero-plan .fp-damage{ opacity: 0; animation: bpFade 620ms ease forwards; }
-  .hero-plan .fp-crack{ fill: none; stroke: rgba(26,88,116,.42); stroke-width: 1.1; stroke-linecap: round; }
+  .app-statusbar{ flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding: 16px 22px 4px; }
+  .app-time{ font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink); }
+  .app-status-icons{ display: flex; align-items: center; gap: 3px; }
+  .si-bar{ display:inline-block; width: 3px; height: 8px; background: var(--ink); border-radius: 1px; }
+  .si-bar:nth-child(2){ height: 10px; }
+  .si-bar:nth-child(3){ height: 6px; }
+  .si-batt{ display:inline-block; width: 16px; height: 9px; border: 1.3px solid var(--ink); border-radius: 2px; margin-left: 3px; }
+
+  .app-header{ flex-shrink: 0; padding: 10px 22px 12px; border-bottom: 1px solid var(--line); }
+  .app-brand{ display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .app-brand img{ width: 14px; height: 14px; border-radius: 4px; display: block; }
+  .app-brand span{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 11px; color: var(--ink-soft); letter-spacing: .3px; }
+  .app-header-row{ display: flex; align-items: baseline; justify-content: space-between; }
+  .app-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 19px; color: var(--ink); }
+  .app-date{ font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--muted); }
+
+  .app-joblist{ flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; }
+  .job-card{
+    position: relative;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 2px rgba(23,24,27,0.04);
+  }
+  .job-card-top{ display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .job-address{ font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 12.5px; color: var(--ink); }
+  .job-card-bottom{ display: flex; align-items: center; justify-content: space-between; }
+  .job-time{ font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--muted); }
+  .job-client{ font-family: 'IBM Plex Sans', sans-serif; font-size: 10.5px; color: var(--ink-soft); }
+
+  .status-pill{
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 3px 9px; border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .status-scheduled{ background: var(--line); color: var(--ink-soft); }
+
+  .job-status{ position: relative; display: inline-block; flex-shrink: 0; }
+  .job-card-active .job-status{ min-width: 76px; height: 19px; }
+  .job-card-active .status-badge{
+    position: absolute; top: 0; right: 0;
+    background: var(--line); color: var(--ink-soft);
+    animation: pillOut 300ms ease 3.15s forwards;
+  }
+  @keyframes pillOut{ to{ opacity: 0; } }
+  .job-card-active .job-status::after{
+    content: "In Progress";
+    position: absolute; top: 0; right: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 3px 9px; border-radius: 20px;
+    background: var(--capture); color: #fff;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; white-space: nowrap;
+    opacity: 0;
+    animation: pillIn 300ms ease 3.25s forwards;
+  }
+  @keyframes pillIn{ to{ opacity: 1; } }
+
+  .job-card-tap{
+    position: absolute;
+    top: 12px; right: 14px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--capture);
+    opacity: 0;
+    animation: tapRipple 550ms ease 2.9s forwards;
+    pointer-events: none;
+  }
+  @keyframes tapRipple{
+    0%{ opacity: .8; transform: scale(.3); }
+    100%{ opacity: 0; transform: scale(2.4); }
+  }
+
+  .app-navbar{ flex-shrink: 0; display: flex; align-items: center; justify-content: space-around; padding: 12px 22px 16px; border-top: 1px solid var(--line); }
+  .nav-icon{ width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+  .nav-icon-active{ background: var(--capture-soft); }
+  .nav-glyph{ display: block; width: 14px; height: 14px; position: relative; }
+  .nav-glyph-home{ border: 1.6px solid var(--ink-soft); border-radius: 3px; }
+  .nav-icon-active .nav-glyph-home{ border-color: var(--capture); }
+  .nav-glyph-check{ border: 1.6px solid var(--ink-soft); border-radius: 50%; }
+  .nav-glyph-check::after{
+    content: ""; position: absolute; left: 3px; top: 5.5px;
+    width: 6px; height: 3px; border-left: 1.6px solid var(--ink-soft); border-bottom: 1.6px solid var(--ink-soft);
+    transform: rotate(-45deg);
+  }
+  .nav-glyph-cal{ border: 1.6px solid var(--ink-soft); border-radius: 3px; }
+  .nav-glyph-cal::before{
+    content: ""; position: absolute; top: -1.6px; left: -1.6px; right: -1.6px;
+    height: 4px; border-bottom: 1.6px solid var(--ink-soft); border-radius: 3px 3px 0 0;
+  }
 
   /* fallback: skip long intro delays for repeat visits / reduced motion */
   body.no-intro .eyebrow{ animation-delay: 0.15s !important; }
@@ -429,10 +596,11 @@
   body.no-intro .hero p.sub{ animation-delay: 0.45s !important; }
   body.no-intro .hero-ctas{ animation-delay: 0.55s !important; }
   body.no-intro .hero-stats{ animation-delay: 0.65s !important; }
-  body.no-intro .hero-plan .bp-line{ animation-delay: 0.1s !important; }
-  body.no-intro .hero-plan .bp-fade{ animation-delay: 0.35s !important; }
-  body.no-intro .hero-plan .fp-damage{ animation-delay: 0.5s !important; }
-
+  body.no-intro .widget-stage{ display: none !important; }
+  body.no-intro .phone-frame{ animation: none !important; opacity: 1 !important; transform: scale(1) rotate(-2deg) !important; }
+  body.no-intro .job-card-tap{ animation-delay: 0.2s !important; }
+  body.no-intro .job-card-active .status-badge{ animation-delay: 0.35s !important; }
+  body.no-intro .job-card-active .job-status::after{ animation-delay: 0.4s !important; }
 
 
   /* ---------- built from the field ---------- */
@@ -657,7 +825,6 @@
       grid-template-columns: minmax(360px, 1fr) minmax(340px, .86fr);
       min-height: 500px;
     }
-    .blueprint{ width: min(44vw, 460px); }
   }
 
   @media (max-width: 860px){
@@ -667,14 +834,14 @@
     .mobile-menu, .menu-backdrop{ display:block; }
     .hero{ grid-template-columns:1fr; min-height:auto; padding-top:42px; }
     .blueprint-wrap{ justify-self:center; margin: 20px auto 0; }
-    .blueprint{ width:min(92%,440px); }
     .suite-grid{ grid-template-columns: repeat(3, 1fr); }
     .field-inner{ flex-direction: column; gap: 14px; }
     .bg-watermark{ font-size: 320px; right: -60px; bottom: -70px; }
   }
   @media (max-width: 520px){
     .suite-grid{ grid-template-columns: 1fr; }
-    .blueprint{ width: 100%; }
+    .phone-mockup{ transform: scale(0.82); }
+    .blueprint{ margin: -50px 0; }
     .hero{ padding-left:20px; padding-right:20px; }
     .bg-watermark{ font-size: 240px; right: -46px; bottom: -52px; }
     .hero-stats{ grid-template-columns: 1fr; row-gap: 16px; column-gap: 0; }
@@ -780,9 +947,13 @@
   @media (prefers-reduced-motion: reduce){
     *, *::before, *::after{ animation: none !important; transition: none !important; }
     #intro{ display: none !important; }
-    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .hero-stats, .bp-line, .bp-fade, .fp-damage{
-      opacity: 1 !important; transform: none !important; stroke-dashoffset: 0 !important;
+    .eyebrow, h1 .line, .hero p.sub, .hero-ctas, .hero-stats,
+    .phone-frame, .app-statusbar, .app-header, .app-navbar, .job-card{
+      opacity: 1 !important; transform: none !important;
     }
+    .job-card-active .status-badge{ opacity: 0 !important; }
+    .job-card-active .job-status::after{ opacity: 1 !important; }
+    .job-card-tap{ display: none !important; }
     .reveal{ opacity: 1; transform: none; }
   }
 </style>
@@ -792,65 +963,97 @@
 <!-- ================= OPENING SEQUENCE ================= -->
 <div id="intro" aria-hidden="true">
   <div class="intro-plan-wrap">
-      <svg id="introScene" class="hero-plan" viewBox="0 0 720 560" role="img" aria-label="A floor plan drawing itself in, then showing water damage in two rooms">
-        <defs>
-          <pattern id="in-grid" width="18" height="18" patternUnits="userSpaceOnUse">
-            <path d="M18 0H0V18" fill="none" stroke="#C7CBCE" stroke-width=".7"/>
-          </pattern>
-          <radialGradient id="in-fp" cx="46%" cy="50%" r="60%">
-            <stop offset="0" stop-color="#1F7FA6" stop-opacity=".42"/>
-            <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".26"/>
-            <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
+<div class="phone-mockup">
+      <div class="widget-stage">
+        <div class="widget-card widget-1">
+          <div class="widget-label">Schedule</div>
+          <div class="widget-title">88 Birch Ave</div>
+          <div class="widget-row">
+            <span class="widget-meta">11:30 AM</span>
+            <span class="status-pill status-progress-static">In Progress</span>
+          </div>
+        </div>
+        <div class="widget-card widget-2">
+          <div class="widget-label">Scope</div>
+          <div class="widget-title">Living Room</div>
+          <div class="widget-row">
+            <span class="badge-cat">CAT 1</span>
+            <span class="widget-meta">412 sq ft</span>
+          </div>
+        </div>
+        <div class="widget-card widget-3">
+          <div class="widget-label">Moisture</div>
+          <div class="widget-title widget-title-lg">18<span class="widget-unit">% MC</span></div>
+          <div class="widget-row"><span class="widget-meta">Drywall — Wall B</span></div>
+        </div>
+        <div class="widget-card widget-4">
+          <div class="widget-label">Equipment</div>
+          <div class="widget-title">4 Units Active</div>
+          <div class="widget-row"><span class="widget-meta">3 Air Movers · 1 Dehum</span></div>
+        </div>
+      </div>
 
-        <rect x="73" y="55" width="594" height="435" fill="url(#in-grid)" class="room-grid"/>
-
-        <path class="wall bp-line" style="--len:2800;animation-delay:.15s" d="M76 56H666V488H76V56Z"/>
-          <path class="wall bp-line" style="--len:590;animation-delay:.23s" d="M244 56V202M244 245V356M244 398V488"/>
-          <path class="wall bp-line" style="--len:560;animation-delay:.30s" d="M410 56V166M410 210V488"/>
-          <path class="wall bp-line" style="--len:540;animation-delay:.37s" d="M244 202H410M76 356H244M410 306H666"/>
-          <path class="wall bp-line" style="--len:360;animation-delay:.44s" d="M500 56V166M500 210V306M410 166H500"/>
-          <path class="wall bp-line" style="--len:290;animation-delay:.51s" d="M500 210H586M628 210H666"/>
-          <path class="wall bp-line" style="--len:280;animation-delay:.58s" d="M76 245H152M194 245H244"/>
-          <path class="wall bp-line" style="--len:260;animation-delay:.65s" d="M410 398H492M534 398H666"/>
-
-          <g class="bp-fade" style="animation-delay:.78s">
-            <g><rect class="window" x="116" y="50" width="58" height="12"/><line class="window-line" x1="121" y1="56" x2="169" y2="56"/></g>
-            <g><rect class="window" x="294" y="50" width="54" height="12"/><line class="window-line" x1="299" y1="56" x2="343" y2="56"/></g>
-            <g><rect class="window" x="542" y="50" width="70" height="12"/><line class="window-line" x1="548" y1="56" x2="606" y2="56"/></g>
-            <g><rect class="window" x="660" y="112" width="12" height="62"/><line class="window-line" x1="666" y1="118" x2="666" y2="168"/></g>
-            <g><rect class="window" x="660" y="352" width="12" height="64"/><line class="window-line" x1="666" y1="358" x2="666" y2="410"/></g>
-            <g><rect class="window" x="112" y="482" width="68" height="12"/><line class="window-line" x1="118" y1="488" x2="174" y2="488"/></g>
-          </g>
-
-          <g class="bp-fade" style="animation-delay:.93s">
-            <path class="door-leaf" d="M244 202H286"/><path class="door-swing" d="M244 245A43 43 0 0 1 287 202"/>
-            <path class="door-leaf" d="M410 166H453"/><path class="door-swing" d="M410 210A44 44 0 0 1 454 166"/>
-            <path class="door-leaf" d="M152 245V287"/><path class="door-swing" d="M194 245A42 42 0 0 0 152 287"/>
-            <path class="door-leaf" d="M492 398V440"/><path class="door-swing" d="M534 398A42 42 0 0 0 492 440"/>
-            <path class="door-leaf" d="M586 210V252"/><path class="door-swing" d="M628 210A42 42 0 0 0 586 252"/>
-            <path class="door-leaf" d="M244 356H287"/><path class="door-swing" d="M244 398A42 42 0 0 1 286 356"/>
-          </g>
-
-        <g class="bp-fade" style="animation-delay:.62s">
-          <path class="dimension" d="M76 32H666M76 26V38M666 26V38"/>
-          <text class="dimension-text" x="350" y="24">48'-0"</text>
-          <path class="dimension" d="M691 56V488M685 56H697M685 488H697"/>
-          <text class="dimension-text" x="703" y="284" transform="rotate(90 703 284)">32'-0"</text>
-        </g>
-
-        <!-- water damage in the two affected rooms -->
-        <g class="fp-damage" style="animation-delay:.75s">
-          <path fill="url(#in-fp)" d="M306 344C350 306 401 292 458 304C508 314 554 294 606 320C645 340 655 382 624 414C590 449 538 438 494 431C446 423 406 445 359 429C317 415 283 375 306 344Z"/>
-          <path class="fp-crack" d="M368 350C384 362 372 378 390 388C404 396 398 408 412 414"/>
-          <path class="fp-crack" d="M470 335C486 344 480 356 498 362"/>
-        </g>
-        <g class="fp-damage" style="animation-delay:.86s">
-          <path fill="url(#in-fp)" d="M298 118C332 96 384 92 424 110C456 124 474 152 454 174C430 200 380 190 344 182C310 174 280 146 298 118Z"/>
-        </g>
-
-        </svg>
+        <div class="phone-glow"></div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-statusbar">
+              <span class="app-time">9:41</span>
+              <div class="app-status-icons">
+                <span class="si-bar"></span><span class="si-bar"></span><span class="si-bar"></span>
+                <span class="si-batt"></span>
+              </div>
+            </div>
+            <div class="app-header">
+              <div class="app-brand"><img src="struvae-mark.png" alt=""><span>Daily</span></div>
+              <div class="app-header-row">
+                <span class="app-title">Today</span>
+                <span class="app-date">Tue, Aug 18</span>
+              </div>
+            </div>
+            <div class="app-joblist">
+              <div class="job-card" style="--d:0.85s">
+                <div class="job-card-top">
+                  <span class="job-address">214 Maple St</span>
+                  <span class="status-pill status-scheduled">Scheduled</span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">9:00 AM</span>
+                  <span class="job-client">D. Whitfield</span>
+                </div>
+              </div>
+              <div class="job-card job-card-active" style="--d:1.0s">
+                <div class="job-card-top">
+                  <span class="job-address">88 Birch Ave</span>
+                  <span class="job-status">
+                    <span class="status-pill status-badge">Scheduled</span>
+                  </span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">11:30 AM</span>
+                  <span class="job-client">R. Nassar</span>
+                </div>
+                <div class="job-card-tap"></div>
+              </div>
+              <div class="job-card" style="--d:1.15s">
+                <div class="job-card-top">
+                  <span class="job-address">560 Cedar Rd</span>
+                  <span class="status-pill status-scheduled">Scheduled</span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">2:00 PM</span>
+                  <span class="job-client">M. Okafor</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-navbar">
+              <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
+              <div class="nav-icon"><span class="nav-glyph nav-glyph-check"></span></div>
+              <div class="nav-icon"><span class="nav-glyph nav-glyph-cal"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   <div class="intro-mark">
     <div class="intro-mark-row">
@@ -923,65 +1126,97 @@
 
   <div class="blueprint-wrap">
     <div class="blueprint">
-      <svg id="heroScene" class="hero-plan" viewBox="0 0 720 560" role="img" aria-label="A floor plan drawing itself in, then showing water damage in two rooms">
-        <defs>
-          <pattern id="he-grid" width="18" height="18" patternUnits="userSpaceOnUse">
-            <path d="M18 0H0V18" fill="none" stroke="#C7CBCE" stroke-width=".7"/>
-          </pattern>
-          <radialGradient id="he-fp" cx="46%" cy="50%" r="60%">
-            <stop offset="0" stop-color="#1F7FA6" stop-opacity=".42"/>
-            <stop offset=".55" stop-color="#2E9BC7" stop-opacity=".26"/>
-            <stop offset="1" stop-color="#6FC3E6" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
+<div class="phone-mockup">
+      <div class="widget-stage">
+        <div class="widget-card widget-1">
+          <div class="widget-label">Schedule</div>
+          <div class="widget-title">88 Birch Ave</div>
+          <div class="widget-row">
+            <span class="widget-meta">11:30 AM</span>
+            <span class="status-pill status-progress-static">In Progress</span>
+          </div>
+        </div>
+        <div class="widget-card widget-2">
+          <div class="widget-label">Scope</div>
+          <div class="widget-title">Living Room</div>
+          <div class="widget-row">
+            <span class="badge-cat">CAT 1</span>
+            <span class="widget-meta">412 sq ft</span>
+          </div>
+        </div>
+        <div class="widget-card widget-3">
+          <div class="widget-label">Moisture</div>
+          <div class="widget-title widget-title-lg">18<span class="widget-unit">% MC</span></div>
+          <div class="widget-row"><span class="widget-meta">Drywall — Wall B</span></div>
+        </div>
+        <div class="widget-card widget-4">
+          <div class="widget-label">Equipment</div>
+          <div class="widget-title">4 Units Active</div>
+          <div class="widget-row"><span class="widget-meta">3 Air Movers · 1 Dehum</span></div>
+        </div>
+      </div>
 
-        <rect x="73" y="55" width="594" height="435" fill="url(#he-grid)" class="room-grid"/>
-
-        <path class="wall bp-line" style="--len:2800;animation-delay:.15s" d="M76 56H666V488H76V56Z"/>
-          <path class="wall bp-line" style="--len:590;animation-delay:.23s" d="M244 56V202M244 245V356M244 398V488"/>
-          <path class="wall bp-line" style="--len:560;animation-delay:.30s" d="M410 56V166M410 210V488"/>
-          <path class="wall bp-line" style="--len:540;animation-delay:.37s" d="M244 202H410M76 356H244M410 306H666"/>
-          <path class="wall bp-line" style="--len:360;animation-delay:.44s" d="M500 56V166M500 210V306M410 166H500"/>
-          <path class="wall bp-line" style="--len:290;animation-delay:.51s" d="M500 210H586M628 210H666"/>
-          <path class="wall bp-line" style="--len:280;animation-delay:.58s" d="M76 245H152M194 245H244"/>
-          <path class="wall bp-line" style="--len:260;animation-delay:.65s" d="M410 398H492M534 398H666"/>
-
-          <g class="bp-fade" style="animation-delay:.78s">
-            <g><rect class="window" x="116" y="50" width="58" height="12"/><line class="window-line" x1="121" y1="56" x2="169" y2="56"/></g>
-            <g><rect class="window" x="294" y="50" width="54" height="12"/><line class="window-line" x1="299" y1="56" x2="343" y2="56"/></g>
-            <g><rect class="window" x="542" y="50" width="70" height="12"/><line class="window-line" x1="548" y1="56" x2="606" y2="56"/></g>
-            <g><rect class="window" x="660" y="112" width="12" height="62"/><line class="window-line" x1="666" y1="118" x2="666" y2="168"/></g>
-            <g><rect class="window" x="660" y="352" width="12" height="64"/><line class="window-line" x1="666" y1="358" x2="666" y2="410"/></g>
-            <g><rect class="window" x="112" y="482" width="68" height="12"/><line class="window-line" x1="118" y1="488" x2="174" y2="488"/></g>
-          </g>
-
-          <g class="bp-fade" style="animation-delay:.93s">
-            <path class="door-leaf" d="M244 202H286"/><path class="door-swing" d="M244 245A43 43 0 0 1 287 202"/>
-            <path class="door-leaf" d="M410 166H453"/><path class="door-swing" d="M410 210A44 44 0 0 1 454 166"/>
-            <path class="door-leaf" d="M152 245V287"/><path class="door-swing" d="M194 245A42 42 0 0 0 152 287"/>
-            <path class="door-leaf" d="M492 398V440"/><path class="door-swing" d="M534 398A42 42 0 0 0 492 440"/>
-            <path class="door-leaf" d="M586 210V252"/><path class="door-swing" d="M628 210A42 42 0 0 0 586 252"/>
-            <path class="door-leaf" d="M244 356H287"/><path class="door-swing" d="M244 398A42 42 0 0 1 286 356"/>
-          </g>
-
-        <g class="bp-fade" style="animation-delay:.62s">
-          <path class="dimension" d="M76 32H666M76 26V38M666 26V38"/>
-          <text class="dimension-text" x="350" y="24">48'-0"</text>
-          <path class="dimension" d="M691 56V488M685 56H697M685 488H697"/>
-          <text class="dimension-text" x="703" y="284" transform="rotate(90 703 284)">32'-0"</text>
-        </g>
-
-        <!-- water damage in the two affected rooms -->
-        <g class="fp-damage" style="animation-delay:.75s">
-          <path fill="url(#he-fp)" d="M306 344C350 306 401 292 458 304C508 314 554 294 606 320C645 340 655 382 624 414C590 449 538 438 494 431C446 423 406 445 359 429C317 415 283 375 306 344Z"/>
-          <path class="fp-crack" d="M368 350C384 362 372 378 390 388C404 396 398 408 412 414"/>
-          <path class="fp-crack" d="M470 335C486 344 480 356 498 362"/>
-        </g>
-        <g class="fp-damage" style="animation-delay:.86s">
-          <path fill="url(#he-fp)" d="M298 118C332 96 384 92 424 110C456 124 474 152 454 174C430 200 380 190 344 182C310 174 280 146 298 118Z"/>
-        </g>
-
-        </svg>
+        <div class="phone-glow"></div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-statusbar">
+              <span class="app-time">9:41</span>
+              <div class="app-status-icons">
+                <span class="si-bar"></span><span class="si-bar"></span><span class="si-bar"></span>
+                <span class="si-batt"></span>
+              </div>
+            </div>
+            <div class="app-header">
+              <div class="app-brand"><img src="struvae-mark.png" alt=""><span>Daily</span></div>
+              <div class="app-header-row">
+                <span class="app-title">Today</span>
+                <span class="app-date">Tue, Aug 18</span>
+              </div>
+            </div>
+            <div class="app-joblist">
+              <div class="job-card" style="--d:0.85s">
+                <div class="job-card-top">
+                  <span class="job-address">214 Maple St</span>
+                  <span class="status-pill status-scheduled">Scheduled</span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">9:00 AM</span>
+                  <span class="job-client">D. Whitfield</span>
+                </div>
+              </div>
+              <div class="job-card job-card-active" style="--d:1.0s">
+                <div class="job-card-top">
+                  <span class="job-address">88 Birch Ave</span>
+                  <span class="job-status">
+                    <span class="status-pill status-badge">Scheduled</span>
+                  </span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">11:30 AM</span>
+                  <span class="job-client">R. Nassar</span>
+                </div>
+                <div class="job-card-tap"></div>
+              </div>
+              <div class="job-card" style="--d:1.15s">
+                <div class="job-card-top">
+                  <span class="job-address">560 Cedar Rd</span>
+                  <span class="status-pill status-scheduled">Scheduled</span>
+                </div>
+                <div class="job-card-bottom">
+                  <span class="job-time">2:00 PM</span>
+                  <span class="job-client">M. Okafor</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-navbar">
+              <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
+              <div class="nav-icon"><span class="nav-glyph nav-glyph-check"></span></div>
+              <div class="nav-icon"><span class="nav-glyph nav-glyph-cal"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1095,7 +1330,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 2900);
+      }, 4900);
     }
   })();
 
