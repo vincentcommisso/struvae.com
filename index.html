@@ -106,7 +106,10 @@
     pointer-events: none;
   }
   .intro-plan-wrap{
-    transform: scale(0.66) translateY(-8%);
+    position: relative;
+    width: 480px;
+    height: 480px;
+    transform: scale(0.72) translateY(-8%);
   }
   .intro-plan-wrap svg{ width: 100%; height: 100%; display: block; overflow: visible; }
   .intro-mark{
@@ -126,7 +129,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 420ms ease 2.50s forwards;
+    animation: fadeUp 420ms ease 3.50s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -144,7 +147,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.62s forwards;
+    animation: fadeUp 420ms ease 3.65s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -152,7 +155,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.74s forwards;
+    animation: fadeUp 420ms ease 3.80s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -245,7 +248,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.40s forwards;
+    animation: fadeUp 520ms ease 4.45s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -265,8 +268,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 3.50s; }
-  h1 .line:nth-child(2){ animation-delay: 3.60s; }
+  h1 .line:nth-child(1){ animation-delay: 4.58s; }
+  h1 .line:nth-child(2){ animation-delay: 4.68s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -276,14 +279,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.70s forwards;
+    animation: fadeUp 520ms ease 4.80s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.80s forwards;
+    animation: fadeUp 520ms ease 4.90s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -317,7 +320,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 3.90s forwards;
+    animation: fadeUp 520ms ease 5.00s forwards;
   }
   .stat{
     display: flex;
@@ -376,6 +379,94 @@
   }
 
   @keyframes bpFade{ to{ opacity: 1; } }
+
+  /* ---------- floating stage: intro-only, no phone/screen chrome ---------- */
+  .float-stage{
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 1px;
+    height: 1px;
+  }
+  .float-sketch{
+    position: absolute;
+    top: 0; left: 0;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: -130px;
+    filter: drop-shadow(0 18px 34px rgba(23,24,27,.22));
+    opacity: 0;
+    animation: floatSketch 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards;
+  }
+  .float-sketch .fp-svg{ width: 100%; height: auto; display: block; }
+  @keyframes floatSketch{
+    0%{   opacity: 0; transform: scale(.6); }
+    12%{  opacity: 1; transform: scale(1); }
+    55%{  opacity: 1; transform: scale(1); }
+    75%{  opacity: 1; transform: scale(1.2); }
+    100%{ opacity: 0; transform: scale(.15); }
+  }
+
+  .float-widget{
+    position: absolute;
+    top: 0; left: 0;
+    width: 150px;
+    margin-left: -75px;
+    margin-top: -34px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
+    box-shadow: 0 16px 32px -14px rgba(23,24,27,.3);
+    opacity: 0;
+  }
+  .widget-label{
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .widget-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); }
+  .widget-title-lg{ font-size: 23px; }
+  .widget-unit{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--ink-soft); margin-left: 2px; }
+  .widget-row{ display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; }
+  .widget-meta{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; }
+  .status-progress-static{
+    display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 20px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600;
+    background: var(--capture); color: #fff;
+  }
+
+  .fw-1{ animation: fwFloat1 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-2{ animation: fwFloat2 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-3{ animation: fwFloat3 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-4{ animation: fwFloat4 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+
+  @keyframes fwFloat1{
+    0%,10%{ opacity: 0; transform: translate(-190px,-155px) scale(.75) rotate(-4deg); }
+    20%{    opacity: 1; transform: translate(-190px,-155px) scale(1)   rotate(-4deg); }
+    55%{    opacity: 1; transform: translate(-190px,-155px) scale(1)   rotate(-4deg); }
+    75%{    opacity: 1; transform: translate(-190px,-155px) scale(1.3) rotate(-4deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes fwFloat2{
+    0%,18%{ opacity: 0; transform: translate(175px,-135px) scale(.75) rotate(3deg); }
+    28%{    opacity: 1; transform: translate(175px,-135px) scale(1)   rotate(3deg); }
+    55%{    opacity: 1; transform: translate(175px,-135px) scale(1)   rotate(3deg); }
+    75%{    opacity: 1; transform: translate(175px,-135px) scale(1.3) rotate(3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes fwFloat3{
+    0%,26%{ opacity: 0; transform: translate(-185px,150px) scale(.75) rotate(3deg); }
+    36%{    opacity: 1; transform: translate(-185px,150px) scale(1)   rotate(3deg); }
+    55%{    opacity: 1; transform: translate(-185px,150px) scale(1)   rotate(3deg); }
+    75%{    opacity: 1; transform: translate(-185px,150px) scale(1.3) rotate(3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
+  @keyframes fwFloat4{
+    0%,34%{ opacity: 0; transform: translate(195px,160px) scale(.75) rotate(-3deg); }
+    44%{    opacity: 1; transform: translate(195px,160px) scale(1)   rotate(-3deg); }
+    55%{    opacity: 1; transform: translate(195px,160px) scale(1)   rotate(-3deg); }
+    75%{    opacity: 1; transform: translate(195px,160px) scale(1.3) rotate(-3deg); }
+    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
+  }
 
   /* ---------- phone mockup: materializes already populated ---------- */
   .phone-mockup{
@@ -993,36 +1084,9 @@
 <!-- ================= OPENING SEQUENCE ================= -->
 <div id="intro" aria-hidden="true">
   <div class="intro-plan-wrap">
-<div class="phone-mockup">
-        <div class="phone-glow"></div>
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="app-statusbar">
-              <span class="app-time">9:41</span>
-              <div class="app-status-icons">
-                <span class="si-bar"></span><span class="si-bar"></span><span class="si-bar"></span>
-                <span class="si-batt"></span>
-              </div>
-            </div>
-            <div class="screen-pages">
-              <div class="screen-track">
-              <div class="screen-floorplan">
-            <div class="fp-header">
-              <span class="fp-back">&#8249;</span>
-              <div class="fp-title-wrap">
-                <span class="fp-title">Living Room</span>
-                <span class="fp-subtitle">Main Level</span>
-              </div>
-              <span class="fp-tag">Scope</span>
-            </div>
-            <div class="fp-subtoolbar">
-              <span class="fp-tool-icon">&#8634;</span>
-              <span class="fp-tool-icon">&#8635;</span>
-              <span class="fp-view-tag">2D</span>
-            </div>
-            <div class="fp-diagram">
-              <svg class="fp-svg" viewBox="0 0 220 182" role="img" aria-label="A detailed two-room floor plan with dimensions, corner handles, a connecting door, and scope markers">
+  <div class="float-stage">
+    <div class="float-sketch">
+      <svg class="fp-svg" viewBox="0 0 220 182" role="img" aria-label="A detailed two-room floor plan with dimensions, corner handles, a connecting door, and scope markers">
                 <defs>
                   <pattern id="fpGridIn" width="12" height="12" patternUnits="userSpaceOnUse">
                     <circle cx="1" cy="1" r="0.7" fill="var(--line-strong)"/>
@@ -1102,79 +1166,28 @@
                 <line class="fp-dim-tick" x1="210" y1="152" x2="210" y2="160"/>
                 <text class="fp-dim-text" x="113" y="169" text-anchor="middle">17'-2" overall</text>
               </svg>
-            </div>
-            <div class="fp-hint">Swipe up for room details</div>
-            <div class="fp-toolbar">
-              <div class="fp-btn">Set Size</div>
-              <div class="fp-btn">Add Scope</div>
-              <div class="fp-btn">Save</div>
-            </div>
-          </div>
-              <div class="screen-daily">
-            <div class="app-header">
-              <div class="app-brand"><img src="struvae-mark.png" alt=""><span>Daily</span></div>
-              <div class="app-header-row">
-                <span class="app-title">Today</span>
-                <span class="app-date">Tue, Aug 18</span>
-              </div>
-            </div>
-            <div class="app-joblist">
-              <div class="job-card">
-                <div class="job-card-top">
-                  <span class="job-address">214 Maple St</span>
-                  <span class="status-pill status-scheduled">Scheduled</span>
-                </div>
-                <div class="job-card-bottom">
-                  <span class="job-time">9:00 AM</span>
-                  <span class="job-client">D. Whitfield</span>
-                </div>
-              </div>
-              <div class="job-card job-card-active">
-                <div class="job-card-top">
-                  <span class="job-address">88 Birch Ave</span>
-                  <span class="job-status">
-                    <span class="status-pill status-badge">Scheduled</span>
-                  </span>
-                </div>
-                <div class="job-card-bottom">
-                  <span class="job-time">11:30 AM</span>
-                  <span class="job-client">R. Nassar</span>
-                </div>
-                <div class="job-card-tap"></div>
-              </div>
-              <div class="job-card">
-                <div class="job-card-top">
-                  <span class="job-address">560 Cedar Rd</span>
-                  <span class="status-pill status-scheduled">Scheduled</span>
-                </div>
-                <div class="job-card-bottom">
-                  <span class="job-time">2:00 PM</span>
-                  <span class="job-client">M. Okafor</span>
-                </div>
-              </div>
-            </div>
-            <div class="app-snapshot">
-              <div class="snapshot-label">Snapshot</div>
-              <div class="snapshot-grid">
-                <div class="snap-card"><span class="snap-label">Scope</span><span class="snap-value">Living Room</span></div>
-                <div class="snap-card"><span class="snap-label">Moisture</span><span class="snap-value">18% MC</span></div>
-                <div class="snap-card"><span class="snap-label">Equipment</span><span class="snap-value">4 Active</span></div>
-                <div class="snap-card"><span class="snap-label">Report</span><span class="snap-value">Draft Ready</span></div>
-                <div class="snap-card"><span class="snap-label">Crew</span><span class="snap-value">3 On Site</span></div>
-                <div class="snap-card"><span class="snap-label">Humidity</span><span class="snap-value">62% RH</span></div>
-              </div>
-            </div>
-          </div>
-              </div>
-            </div>
-            <div class="app-navbar">
-              <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
-              <div class="nav-icon"><span class="nav-glyph nav-glyph-check"></span></div>
-              <div class="nav-icon"><span class="nav-glyph nav-glyph-cal"></span></div>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="float-widget fw-1">
+      <div class="widget-label">Schedule</div>
+      <div class="widget-title">88 Birch Ave</div>
+      <div class="widget-row">
+        <span class="widget-meta">11:30 AM</span>
+        <span class="status-progress-static">In Progress</span>
       </div>
+    </div>
+    <div class="float-widget fw-2">
+      <div class="widget-label">Moisture</div>
+      <div class="widget-title widget-title-lg">18<span class="widget-unit">% MC</span></div>
+    </div>
+    <div class="float-widget fw-3">
+      <div class="widget-label">Equipment</div>
+      <div class="widget-title">4 Active</div>
+    </div>
+    <div class="float-widget fw-4">
+      <div class="widget-label">Crew</div>
+      <div class="widget-title">3 On Site</div>
+    </div>
+  </div>
   </div>
   <div class="intro-mark">
     <div class="intro-mark-row">
@@ -1380,7 +1393,7 @@
                 </div>
                 <div class="job-card-bottom">
                   <span class="job-time">9:00 AM</span>
-                  <span class="job-client">D. Whitfield</span>
+                  <span class="job-client">Crew 1</span>
                 </div>
               </div>
               <div class="job-card job-card-active">
@@ -1392,7 +1405,7 @@
                 </div>
                 <div class="job-card-bottom">
                   <span class="job-time">11:30 AM</span>
-                  <span class="job-client">R. Nassar</span>
+                  <span class="job-client">Crew 2</span>
                 </div>
                 <div class="job-card-tap"></div>
               </div>
@@ -1403,7 +1416,7 @@
                 </div>
                 <div class="job-card-bottom">
                   <span class="job-time">2:00 PM</span>
-                  <span class="job-client">M. Okafor</span>
+                  <span class="job-client">Crew 3</span>
                 </div>
               </div>
             </div>
@@ -1542,7 +1555,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 3400);
+      }, 4450);
     }
   })();
 
