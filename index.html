@@ -126,7 +126,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 420ms ease 3.30s forwards;
+    animation: fadeUp 420ms ease 3.93s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -144,7 +144,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 420ms ease 3.45s forwards;
+    animation: fadeUp 420ms ease 4.08s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -152,7 +152,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 420ms ease 3.60s forwards;
+    animation: fadeUp 420ms ease 4.23s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -245,7 +245,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.25s forwards;
+    animation: fadeUp 520ms ease 4.88s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -265,8 +265,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 4.38s; }
-  h1 .line:nth-child(2){ animation-delay: 4.48s; }
+  h1 .line:nth-child(1){ animation-delay: 5.01s; }
+  h1 .line:nth-child(2){ animation-delay: 5.11s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -276,14 +276,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.60s forwards;
+    animation: fadeUp 520ms ease 5.23s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.72s forwards;
+    animation: fadeUp 520ms ease 5.35s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -317,7 +317,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 4.85s forwards;
+    animation: fadeUp 520ms ease 5.48s forwards;
   }
   .stat{
     display: flex;
@@ -440,20 +440,23 @@
   .si-batt{ display:inline-block; width: 16px; height: 9px; border: 1.3px solid var(--ink); border-radius: 2px; margin-left: 3px; }
 
   .screen-pages{ flex: 1; position: relative; overflow: hidden; }
-  .screen-floorplan, .screen-daily{
+  .screen-track{
     position: absolute; inset: 0;
-    display: flex; flex-direction: column;
+    height: 200%;
+    display: flex;
+    flex-direction: column;
+    animation: screenScroll 4.5s cubic-bezier(.7,0,.3,1) 1.2s infinite alternate;
   }
-  .screen-floorplan{
-    opacity: 1;
-    animation: fpScreenOut 500ms ease 2.0s forwards;
+  .screen-floorplan, .screen-daily{
+    flex: 0 0 50%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
   }
-  @keyframes fpScreenOut{ to{ opacity: 0; } }
-  .screen-daily{
-    opacity: 0;
-    animation: dailyScreenIn 500ms ease 2.1s forwards;
+  @keyframes screenScroll{
+    0%,  25%{  transform: translateY(0); }
+    45%, 100%{ transform: translateY(-50%); }
   }
-  @keyframes dailyScreenIn{ to{ opacity: 1; } }
 
   /* -- floor plan / scope screen -- */
   .fp-header{ flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 10px 18px 12px; border-bottom: 1px solid var(--line); }
@@ -466,7 +469,14 @@
     color: var(--capture); background: var(--capture-soft); border: 1px solid rgba(46,155,199,.35);
     padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
   }
-  .fp-diagram{ flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px 18px; }
+  .fp-subtoolbar{ flex-shrink: 0; display: flex; align-items: center; gap: 12px; padding: 7px 18px; border-bottom: 1px solid var(--line); }
+  .fp-tool-icon{ font-size: 14px; color: var(--muted); line-height: 1; }
+  .fp-view-tag{
+    margin-left: auto;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; color: var(--ink-soft);
+    background: var(--paper); border: 1px solid var(--line); padding: 3px 9px; border-radius: 6px;
+  }
+  .fp-diagram{ flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 18px; }
   .fp-svg{ width: 100%; height: auto; }
   .fp-svg .fp-wall{ fill: none; stroke: var(--ink); stroke-width: 4.5; stroke-linecap: square; }
   .fp-svg .fp-door-leaf{ fill: none; stroke: var(--ink-soft); stroke-width: 2; }
@@ -474,11 +484,17 @@
   .fp-svg .fp-dim{ stroke: var(--bp-dim, #A7ACB0); stroke-width: 1; }
   .fp-svg .fp-dim-tick{ stroke: var(--bp-dim, #A7ACB0); stroke-width: 1; }
   .fp-svg .fp-dim-text{ font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; fill: var(--muted); }
+  .fp-svg .fp-room-label{ font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; font-size: 9.5px; fill: var(--ink-soft); opacity: .8; }
+  .fp-svg .fp-room-label-sm{ font-size: 8px; }
   .fp-svg .fp-marker{ stroke: var(--paper-raised); stroke-width: 1.5; }
   .fp-svg .fp-marker-water{ fill: var(--capture); }
   .fp-svg .fp-marker-equip{ fill: var(--ink-soft); }
   .fp-svg .fp-marker-label{ font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; fill: var(--ink-soft); }
-  .fp-toolbar{ flex-shrink: 0; display: flex; gap: 8px; padding: 10px 18px 16px; border-top: 1px solid var(--line); }
+  .fp-hint{
+    flex-shrink: 0; text-align: center; padding: 0 18px 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: .2px; color: var(--muted);
+  }
+  .fp-toolbar{ flex-shrink: 0; display: flex; gap: 8px; padding: 8px 18px 16px; border-top: 1px solid var(--line); }
   .fp-btn{
     flex: 1; text-align: center;
     font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; color: var(--ink-soft);
@@ -540,7 +556,7 @@
   .job-card-active .status-badge{
     position: absolute; top: 0; right: 0;
     background: var(--line); color: var(--ink-soft);
-    animation: pillToggle 6s ease-in-out 2.8s infinite alternate;
+    animation: pillToggle 6s ease-in-out 3.4s infinite alternate;
   }
   @keyframes pillToggle{
     0%{ opacity: 1; }
@@ -555,7 +571,7 @@
     background: var(--capture); color: #fff;
     font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; white-space: nowrap;
     opacity: 0;
-    animation: pillToggleAfter 6s ease-in-out 2.8s infinite alternate;
+    animation: pillToggleAfter 6s ease-in-out 3.4s infinite alternate;
   }
   @keyframes pillToggleAfter{
     0%{ opacity: 0; }
@@ -570,7 +586,7 @@
     border-radius: 50%;
     border: 2px solid var(--capture);
     opacity: 0;
-    animation: tapRipple 6s ease 2.6s infinite;
+    animation: tapRipple 6s ease 3.2s infinite;
     pointer-events: none;
   }
   @keyframes tapRipple{
@@ -606,8 +622,7 @@
   body.no-intro .hero-ctas{ animation-delay: 0.55s !important; }
   body.no-intro .hero-stats{ animation-delay: 0.65s !important; }
   body.no-intro .phone-frame{ animation: none !important; opacity: 1 !important; transform: scale(1) rotate(-2deg) !important; }
-  body.no-intro .screen-floorplan{ animation: none !important; opacity: 0 !important; }
-  body.no-intro .screen-daily{ animation: none !important; opacity: 1 !important; }
+  body.no-intro .screen-track{ animation-delay: 0.3s !important; }
   body.no-intro .job-card-tap{ animation-delay: 0.2s !important; }
   body.no-intro .job-card-active .status-badge{ animation-delay: 0.35s !important; }
   body.no-intro .job-card-active .job-status::after{ animation-delay: 0.4s !important; }
@@ -961,8 +976,7 @@
     .phone-frame, .app-statusbar, .app-header, .app-navbar, .job-card{
       opacity: 1 !important; transform: none !important;
     }
-    .screen-floorplan{ opacity: 0 !important; }
-    .screen-daily{ opacity: 1 !important; }
+    .screen-track{ transform: translateY(-50%) !important; }
     .job-card-active .status-badge{ opacity: 0 !important; }
     .job-card-active .job-status::after{ opacity: 1 !important; }
     .job-card-tap{ display: none !important; }
@@ -988,6 +1002,7 @@
               </div>
             </div>
             <div class="screen-pages">
+              <div class="screen-track">
               <div class="screen-floorplan">
             <div class="fp-header">
               <span class="fp-back">&#8249;</span>
@@ -997,30 +1012,56 @@
               </div>
               <span class="fp-tag">Scope</span>
             </div>
+            <div class="fp-subtoolbar">
+              <span class="fp-tool-icon">&#8634;</span>
+              <span class="fp-tool-icon">&#8635;</span>
+              <span class="fp-view-tag">2D</span>
+            </div>
             <div class="fp-diagram">
-              <svg class="fp-svg" viewBox="0 0 220 176" role="img" aria-label="A single-room floor plan with dimensions, a door, and two scope markers">
-                <line class="fp-dim" x1="24" y1="14" x2="196" y2="14"/>
-                <line class="fp-dim-tick" x1="24" y1="10" x2="24" y2="18"/>
-                <line class="fp-dim-tick" x1="196" y1="10" x2="196" y2="18"/>
-                <text class="fp-dim-text" x="110" y="10" text-anchor="middle">14'-6"</text>
+              <svg class="fp-svg" viewBox="0 0 220 180" role="img" aria-label="A two-room floor plan with dimensions, a connecting door, and scope markers">
+                <!-- top dimension (Living Room) -->
+                <line class="fp-dim" x1="20" y1="12" x2="150" y2="12"/>
+                <line class="fp-dim-tick" x1="20" y1="8" x2="20" y2="16"/>
+                <line class="fp-dim-tick" x1="150" y1="8" x2="150" y2="16"/>
+                <text class="fp-dim-text" x="85" y="9" text-anchor="middle">12'-4"</text>
 
-                <path class="fp-wall" d="M24,24 H90"/>
-                <path class="fp-wall" d="M118,24 H196"/>
-                <path class="fp-wall" d="M196,24 V150"/>
-                <path class="fp-wall" d="M196,150 H24"/>
-                <path class="fp-wall" d="M24,150 V24"/>
-                <path class="fp-door-leaf" d="M90,24 V50"/>
-                <path class="fp-door-swing" d="M90,50 A26,26 0 0 0 116,24"/>
+                <!-- side dimension (Living Room) -->
+                <text class="fp-dim-text" x="8" y="82" text-anchor="middle" transform="rotate(-90 8 82)">10'-6"</text>
 
-                <circle class="fp-marker fp-marker-water" cx="150" cy="72" r="5"/>
-                <text class="fp-marker-label" x="150" y="90" text-anchor="middle">Water</text>
+                <!-- top dimension (Utility) -->
+                <line class="fp-dim" x1="150" y1="60" x2="200" y2="60"/>
+                <line class="fp-dim-tick" x1="150" y1="56" x2="150" y2="64"/>
+                <line class="fp-dim-tick" x1="200" y1="56" x2="200" y2="64"/>
+                <text class="fp-dim-text" x="175" y="57" text-anchor="middle">5'-4"</text>
 
-                <circle class="fp-marker fp-marker-equip" cx="62" cy="114" r="5"/>
-                <text class="fp-marker-label" x="62" y="132" text-anchor="middle">Fan</text>
+                <!-- L-shaped footprint: Living Room + Utility -->
+                <path class="fp-wall" d="M20,22 H150"/>
+                <path class="fp-wall" d="M20,22 V140"/>
+                <path class="fp-wall" d="M20,140 H200"/>
+                <path class="fp-wall" d="M200,140 V70"/>
+                <path class="fp-wall" d="M200,70 H150"/>
+                <path class="fp-wall" d="M150,70 V22"/>
 
-                <text class="fp-dim-text" x="10" y="90" text-anchor="middle" transform="rotate(-90 10 90)">11'-2"</text>
+                <!-- interior partition with doorway -->
+                <path class="fp-wall" d="M150,70 V88"/>
+                <path class="fp-wall" d="M150,108 V140"/>
+                <path class="fp-door-leaf" d="M150,88 V108"/>
+                <path class="fp-door-swing" d="M150,108 A20,20 0 0 0 170,88"/>
+
+                <text class="fp-room-label" x="80" y="34">Living Room</text>
+                <text class="fp-room-label fp-room-label-sm" x="158" y="84">Utility</text>
+
+                <circle class="fp-marker fp-marker-water" cx="112" cy="72" r="5"/>
+                <text class="fp-marker-label" x="112" y="90" text-anchor="middle">Water</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="52" cy="110" r="5"/>
+                <text class="fp-marker-label" x="52" y="128" text-anchor="middle">Fan</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="175" cy="118" r="5"/>
+                <text class="fp-marker-label" x="175" y="136" text-anchor="middle">Dehum</text>
               </svg>
             </div>
+            <div class="fp-hint">Swipe up for room details</div>
             <div class="fp-toolbar">
               <div class="fp-btn">Set Size</div>
               <div class="fp-btn">Add Scope</div>
@@ -1082,6 +1123,7 @@
               </div>
             </div>
           </div>
+              </div>
             </div>
             <div class="app-navbar">
               <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
@@ -1176,6 +1218,7 @@
               </div>
             </div>
             <div class="screen-pages">
+              <div class="screen-track">
               <div class="screen-floorplan">
             <div class="fp-header">
               <span class="fp-back">&#8249;</span>
@@ -1185,30 +1228,56 @@
               </div>
               <span class="fp-tag">Scope</span>
             </div>
+            <div class="fp-subtoolbar">
+              <span class="fp-tool-icon">&#8634;</span>
+              <span class="fp-tool-icon">&#8635;</span>
+              <span class="fp-view-tag">2D</span>
+            </div>
             <div class="fp-diagram">
-              <svg class="fp-svg" viewBox="0 0 220 176" role="img" aria-label="A single-room floor plan with dimensions, a door, and two scope markers">
-                <line class="fp-dim" x1="24" y1="14" x2="196" y2="14"/>
-                <line class="fp-dim-tick" x1="24" y1="10" x2="24" y2="18"/>
-                <line class="fp-dim-tick" x1="196" y1="10" x2="196" y2="18"/>
-                <text class="fp-dim-text" x="110" y="10" text-anchor="middle">14'-6"</text>
+              <svg class="fp-svg" viewBox="0 0 220 180" role="img" aria-label="A two-room floor plan with dimensions, a connecting door, and scope markers">
+                <!-- top dimension (Living Room) -->
+                <line class="fp-dim" x1="20" y1="12" x2="150" y2="12"/>
+                <line class="fp-dim-tick" x1="20" y1="8" x2="20" y2="16"/>
+                <line class="fp-dim-tick" x1="150" y1="8" x2="150" y2="16"/>
+                <text class="fp-dim-text" x="85" y="9" text-anchor="middle">12'-4"</text>
 
-                <path class="fp-wall" d="M24,24 H90"/>
-                <path class="fp-wall" d="M118,24 H196"/>
-                <path class="fp-wall" d="M196,24 V150"/>
-                <path class="fp-wall" d="M196,150 H24"/>
-                <path class="fp-wall" d="M24,150 V24"/>
-                <path class="fp-door-leaf" d="M90,24 V50"/>
-                <path class="fp-door-swing" d="M90,50 A26,26 0 0 0 116,24"/>
+                <!-- side dimension (Living Room) -->
+                <text class="fp-dim-text" x="8" y="82" text-anchor="middle" transform="rotate(-90 8 82)">10'-6"</text>
 
-                <circle class="fp-marker fp-marker-water" cx="150" cy="72" r="5"/>
-                <text class="fp-marker-label" x="150" y="90" text-anchor="middle">Water</text>
+                <!-- top dimension (Utility) -->
+                <line class="fp-dim" x1="150" y1="60" x2="200" y2="60"/>
+                <line class="fp-dim-tick" x1="150" y1="56" x2="150" y2="64"/>
+                <line class="fp-dim-tick" x1="200" y1="56" x2="200" y2="64"/>
+                <text class="fp-dim-text" x="175" y="57" text-anchor="middle">5'-4"</text>
 
-                <circle class="fp-marker fp-marker-equip" cx="62" cy="114" r="5"/>
-                <text class="fp-marker-label" x="62" y="132" text-anchor="middle">Fan</text>
+                <!-- L-shaped footprint: Living Room + Utility -->
+                <path class="fp-wall" d="M20,22 H150"/>
+                <path class="fp-wall" d="M20,22 V140"/>
+                <path class="fp-wall" d="M20,140 H200"/>
+                <path class="fp-wall" d="M200,140 V70"/>
+                <path class="fp-wall" d="M200,70 H150"/>
+                <path class="fp-wall" d="M150,70 V22"/>
 
-                <text class="fp-dim-text" x="10" y="90" text-anchor="middle" transform="rotate(-90 10 90)">11'-2"</text>
+                <!-- interior partition with doorway -->
+                <path class="fp-wall" d="M150,70 V88"/>
+                <path class="fp-wall" d="M150,108 V140"/>
+                <path class="fp-door-leaf" d="M150,88 V108"/>
+                <path class="fp-door-swing" d="M150,108 A20,20 0 0 0 170,88"/>
+
+                <text class="fp-room-label" x="80" y="34">Living Room</text>
+                <text class="fp-room-label fp-room-label-sm" x="158" y="84">Utility</text>
+
+                <circle class="fp-marker fp-marker-water" cx="112" cy="72" r="5"/>
+                <text class="fp-marker-label" x="112" y="90" text-anchor="middle">Water</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="52" cy="110" r="5"/>
+                <text class="fp-marker-label" x="52" y="128" text-anchor="middle">Fan</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="175" cy="118" r="5"/>
+                <text class="fp-marker-label" x="175" y="136" text-anchor="middle">Dehum</text>
               </svg>
             </div>
+            <div class="fp-hint">Swipe up for room details</div>
             <div class="fp-toolbar">
               <div class="fp-btn">Set Size</div>
               <div class="fp-btn">Add Scope</div>
@@ -1270,6 +1339,7 @@
               </div>
             </div>
           </div>
+              </div>
             </div>
             <div class="app-navbar">
               <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
@@ -1392,7 +1462,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 4250);
+      }, 4880);
     }
   })();
 
