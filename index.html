@@ -129,7 +129,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 420ms ease 3.50s forwards;
+    animation: fadeUp 380ms ease 0.30s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -147,7 +147,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 420ms ease 3.65s forwards;
+    animation: fadeUp 380ms ease 0.45s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -155,7 +155,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 420ms ease 3.80s forwards;
+    animation: fadeUp 380ms ease 0.60s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -248,7 +248,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.45s forwards;
+    animation: fadeUp 520ms ease 2.50s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -268,8 +268,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 4.58s; }
-  h1 .line:nth-child(2){ animation-delay: 4.68s; }
+  h1 .line:nth-child(1){ animation-delay: 2.63s; }
+  h1 .line:nth-child(2){ animation-delay: 2.73s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -279,14 +279,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.80s forwards;
+    animation: fadeUp 520ms ease 2.85s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 4.90s forwards;
+    animation: fadeUp 520ms ease 2.95s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -320,7 +320,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 5.00s forwards;
+    animation: fadeUp 520ms ease 3.05s forwards;
   }
   .stat{
     display: flex;
@@ -395,7 +395,7 @@
     margin-top: -130px;
     filter: drop-shadow(0 18px 34px rgba(23,24,27,.22));
     opacity: 0;
-    animation: floatSketch 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards;
+    animation: floatSketch 2.2s cubic-bezier(.4,0,.2,1) 0.1s forwards;
   }
   .float-sketch .fp-svg{ width: 100%; height: auto; display: block; }
   @keyframes floatSketch{
@@ -434,10 +434,10 @@
     background: var(--capture); color: #fff;
   }
 
-  .fw-1{ animation: fwFloat1 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
-  .fw-2{ animation: fwFloat2 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
-  .fw-3{ animation: fwFloat3 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
-  .fw-4{ animation: fwFloat4 3.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-1{ animation: fwFloat1 2.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-2{ animation: fwFloat2 2.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-3{ animation: fwFloat3 2.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
+  .fw-4{ animation: fwFloat4 2.2s cubic-bezier(.4,0,.2,1) 0.1s forwards; }
 
   @keyframes fwFloat1{
     0%,10%{ opacity: 0; transform: translate(-190px,-155px) scale(.75) rotate(-4deg); }
@@ -1555,7 +1555,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 4450);
+      }, 2500);
     }
   })();
 
