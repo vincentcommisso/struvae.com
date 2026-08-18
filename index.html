@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 750ms cubic-bezier(.4,0,.2,1), transform 750ms cubic-bezier(.4,0,.2,1);
+    transition: opacity 450ms cubic-bezier(.4,0,.2,1), transform 450ms cubic-bezier(.4,0,.2,1);
   }
   #intro.intro-hide{
     opacity: 0;
@@ -210,15 +210,16 @@
   }
   .nav-links a:not(.nav-cta):hover::after{ right: 0; }
   .nav-cta{
-    background: var(--ink);
-    color: var(--paper);
-    padding: 13px 32px;
+    background: var(--capture);
+    color: #06222E;
+    border: none;
+    padding: 13px 24px;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 13.5px;
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    font-size: 14px;
+    transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
   }
-  .nav-cta:hover{ transform: translateY(-1px); box-shadow: 0 8px 20px rgba(30,27,23,0.18); }
+  .nav-cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 26px rgba(46,155,199,0.30); filter: brightness(1.04); }
 
   /* ---------- hero ---------- */
   .hero{
@@ -248,7 +249,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 2.50s forwards;
+    animation: fadeUp 380ms ease 2.35s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -268,8 +269,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 2.63s; }
-  h1 .line:nth-child(2){ animation-delay: 2.73s; }
+  h1 .line:nth-child(1){ animation-delay: 2.45s; }
+  h1 .line:nth-child(2){ animation-delay: 2.53s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -279,14 +280,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 2.85s forwards;
+    animation: fadeUp 380ms ease 2.63s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 2.95s forwards;
+    animation: fadeUp 380ms ease 2.71s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -320,7 +321,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 3.05s forwards;
+    animation: fadeUp 380ms ease 2.79s forwards;
   }
   .stat{
     display: flex;
@@ -936,7 +937,7 @@
   .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto;}
   .mobile-menu a{display:block;padding:14px 15px;border-radius:9px;font-size:15px;color:var(--ink-soft);}
   .mobile-menu a:hover{background:rgba(30,27,23,.04);color:var(--ink);}
-  .mobile-menu .mobile-menu-cta{margin-top:6px;background:var(--ink);color:var(--paper);text-align:center;font-weight:600;padding:15px 18px;}
+  .mobile-menu .mobile-menu-cta{margin-top:6px;background:var(--capture);color:#06222E;text-align:center;font-weight:600;padding:15px 18px;}
   .menu-backdrop{display:none;position:fixed;inset:0;z-index:20;background:rgba(30,27,23,.18);opacity:0;pointer-events:none;transition:opacity 180ms ease;}
   .menu-backdrop.open{opacity:1;pointer-events:auto;}
 
@@ -1212,7 +1213,7 @@
     <a href="#suite">Products</a>
     <a href="#field">About</a>
     <a href="#waitlist">Get updates</a>
-    <a href="#suite" class="nav-cta">Try Daily</a>
+    <a href="#suite" class="nav-cta">Try Struvae Daily</a>
   </div>
   <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
@@ -1222,7 +1223,7 @@
   <a href="#suite">Products</a>
   <a href="#field">About</a>
   <a href="#waitlist">Get updates</a>
-  <a href="#suite" class="mobile-menu-cta">Try Daily</a>
+  <a href="#suite" class="mobile-menu-cta">Try Struvae Daily</a>
 </div>
 <div class="menu-backdrop" aria-hidden="true"></div>
 
@@ -1554,8 +1555,8 @@
       setTimeout(function(){
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
-        setTimeout(function(){ intro.remove(); }, 800);
-      }, 2500);
+        setTimeout(function(){ intro.remove(); }, 480);
+      }, 2350);
     }
   })();
 
