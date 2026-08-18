@@ -126,7 +126,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 420ms ease 2.30s forwards;
+    animation: fadeUp 420ms ease 2.50s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -144,7 +144,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.45s forwards;
+    animation: fadeUp 420ms ease 2.65s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -152,7 +152,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.60s forwards;
+    animation: fadeUp 420ms ease 2.80s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -245,7 +245,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.30s forwards;
+    animation: fadeUp 520ms ease 3.50s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -265,8 +265,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 3.40s; }
-  h1 .line:nth-child(2){ animation-delay: 3.50s; }
+  h1 .line:nth-child(1){ animation-delay: 3.60s; }
+  h1 .line:nth-child(2){ animation-delay: 3.70s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -276,14 +276,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.62s forwards;
+    animation: fadeUp 520ms ease 3.82s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.74s forwards;
+    animation: fadeUp 520ms ease 3.94s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -317,7 +317,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 3.88s forwards;
+    animation: fadeUp 520ms ease 4.08s forwards;
   }
   .stat{
     display: flex;
@@ -387,26 +387,26 @@
   .widget-card{
     position: absolute;
     top: 0; left: 0;
-    width: 168px;
+    width: 192px;
     background: var(--paper-raised);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 12px 14px;
-    box-shadow: 0 16px 32px -14px rgba(23,24,27,0.28);
+    border-radius: 16px;
+    padding: 15px 17px;
+    box-shadow: 0 18px 36px -14px rgba(23,24,27,0.3);
     opacity: 0;
   }
   .widget-label{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 6px;
+    margin-bottom: 7px;
   }
-  .widget-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 7px; }
-  .widget-title-lg{ font-size: 22px; }
-  .widget-unit{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; color: var(--ink-soft); margin-left: 2px; }
+  .widget-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+  .widget-title-lg{ font-size: 26px; }
+  .widget-unit{ font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-left: 2px; }
   .widget-row{ display: flex; align-items: center; justify-content: space-between; gap: 6px; }
   .widget-meta{ font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .badge-cat{
@@ -416,33 +416,37 @@
   }
   .status-progress-static{ background: var(--capture); color: #fff; }
 
-  .widget-1{ animation: wFloat1 1.3s ease-in-out 0.1s forwards; }
-  .widget-2{ animation: wFloat2 1.3s ease-in-out 0.1s forwards; }
-  .widget-3{ animation: wFloat3 1.3s ease-in-out 0.1s forwards; }
-  .widget-4{ animation: wFloat4 1.3s ease-in-out 0.1s forwards; }
+  .widget-1{ animation: wFloat1 1.5s ease-in-out 0.1s forwards; }
+  .widget-2{ animation: wFloat2 1.5s ease-in-out 0.1s forwards; }
+  .widget-3{ animation: wFloat3 1.5s ease-in-out 0.1s forwards; }
+  .widget-4{ animation: wFloat4 1.5s ease-in-out 0.1s forwards; }
 
   @keyframes wFloat1{
-    0%{     opacity: 0; transform: translate(-172px,-172px) scale(.8) rotate(-4deg); }
-    10%{    opacity: 1; transform: translate(-172px,-172px) scale(1)  rotate(-4deg); }
-    58%{    opacity: 1; transform: translate(-172px,-172px) scale(1)  rotate(-4deg); }
+    0%{     opacity: 0; transform: translate(-198px,-198px) scale(.8)  rotate(-4deg); }
+    8%{     opacity: 1; transform: translate(-198px,-198px) scale(1)   rotate(-4deg); }
+    44%{    opacity: 1; transform: translate(-198px,-198px) scale(1)   rotate(-4deg); }
+    70%{    opacity: 1; transform: translate(-198px,-198px) scale(1.4) rotate(-4deg); }
     100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
   }
   @keyframes wFloat2{
-    0%,18%{ opacity: 0; transform: translate(16px,-190px) scale(.8) rotate(3deg); }
-    28%{    opacity: 1; transform: translate(16px,-190px) scale(1)  rotate(3deg); }
-    58%{    opacity: 1; transform: translate(16px,-190px) scale(1)  rotate(3deg); }
+    0%,16%{ opacity: 0; transform: translate(18px,-220px) scale(.8)  rotate(3deg); }
+    24%{    opacity: 1; transform: translate(18px,-220px) scale(1)   rotate(3deg); }
+    48%{    opacity: 1; transform: translate(18px,-220px) scale(1)   rotate(3deg); }
+    70%{    opacity: 1; transform: translate(18px,-220px) scale(1.4) rotate(3deg); }
     100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
   }
   @keyframes wFloat3{
-    0%,30%{ opacity: 0; transform: translate(-180px,110px) scale(.8) rotate(3deg); }
-    40%{    opacity: 1; transform: translate(-180px,110px) scale(1)  rotate(3deg); }
-    58%{    opacity: 1; transform: translate(-180px,110px) scale(1)  rotate(3deg); }
+    0%,28%{ opacity: 0; transform: translate(-208px,128px) scale(.8)  rotate(3deg); }
+    36%{    opacity: 1; transform: translate(-208px,128px) scale(1)   rotate(3deg); }
+    52%{    opacity: 1; transform: translate(-208px,128px) scale(1)   rotate(3deg); }
+    70%{    opacity: 1; transform: translate(-208px,128px) scale(1.4) rotate(3deg); }
     100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
   }
   @keyframes wFloat4{
-    0%,42%{ opacity: 0; transform: translate(20px,150px) scale(.8) rotate(-3deg); }
-    52%{    opacity: 1; transform: translate(20px,150px) scale(1)  rotate(-3deg); }
-    58%{    opacity: 1; transform: translate(20px,150px) scale(1)  rotate(-3deg); }
+    0%,40%{ opacity: 0; transform: translate(23px,172px) scale(.8)  rotate(-3deg); }
+    48%{    opacity: 1; transform: translate(23px,172px) scale(1)   rotate(-3deg); }
+    58%{    opacity: 1; transform: translate(23px,172px) scale(1)   rotate(-3deg); }
+    70%{    opacity: 1; transform: translate(23px,172px) scale(1.4) rotate(-3deg); }
     100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
   }
 
@@ -471,7 +475,7 @@
     box-shadow: 0 30px 60px -20px rgba(23,24,27,0.35), 0 10px 24px -10px rgba(23,24,27,0.2);
     opacity: 0;
     transform: scale(.72) rotate(-2deg);
-    animation: phoneIn 400ms cubic-bezier(.2,.8,.2,1) 1.25s forwards;
+    animation: phoneIn 400ms cubic-bezier(.2,.8,.2,1) 1.45s forwards;
   }
   @keyframes phoneIn{ to{ opacity: 1; transform: scale(1) rotate(-2deg); } }
   .phone-notch{
@@ -559,9 +563,13 @@
   .job-card-active .status-badge{
     position: absolute; top: 0; right: 0;
     background: var(--line); color: var(--ink-soft);
-    animation: pillOut 250ms ease 1.8s forwards;
+    animation: pillToggle 6s ease-in-out 2.0s infinite alternate;
   }
-  @keyframes pillOut{ to{ opacity: 0; } }
+  @keyframes pillToggle{
+    0%{ opacity: 1; }
+    6%{ opacity: 0; }
+    100%{ opacity: 0; }
+  }
   .job-card-active .job-status::after{
     content: "In Progress";
     position: absolute; top: 0; right: 0;
@@ -570,9 +578,13 @@
     background: var(--capture); color: #fff;
     font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; white-space: nowrap;
     opacity: 0;
-    animation: pillIn 250ms ease 1.9s forwards;
+    animation: pillToggleAfter 6s ease-in-out 2.0s infinite alternate;
   }
-  @keyframes pillIn{ to{ opacity: 1; } }
+  @keyframes pillToggleAfter{
+    0%{ opacity: 0; }
+    6%{ opacity: 1; }
+    100%{ opacity: 1; }
+  }
 
   .job-card-tap{
     position: absolute;
@@ -581,12 +593,14 @@
     border-radius: 50%;
     border: 2px solid var(--capture);
     opacity: 0;
-    animation: tapRipple 400ms ease 1.6s forwards;
+    animation: tapRipple 6s ease 1.8s infinite;
     pointer-events: none;
   }
   @keyframes tapRipple{
-    0%{ opacity: .8; transform: scale(.3); }
-    100%{ opacity: 0; transform: scale(2.4); }
+    0%{     opacity: 0;  transform: scale(.3); }
+    6%{     opacity: .8; transform: scale(.3); }
+    15%{    opacity: 0;  transform: scale(2.4); }
+    100%{   opacity: 0;  transform: scale(2.4); }
   }
 
   .app-navbar{ flex-shrink: 0; display: flex; align-items: center; justify-content: space-around; padding: 12px 22px 16px; border-top: 1px solid var(--line); }
@@ -1406,7 +1420,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 3300);
+      }, 3500);
     }
   })();
 
