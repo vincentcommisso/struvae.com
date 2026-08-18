@@ -126,7 +126,7 @@
     align-items: center;
     gap: 10px;
     opacity: 0;
-    animation: fadeUp 420ms ease 2.50s forwards;
+    animation: fadeUp 420ms ease 3.30s forwards;
   }
   .intro-mark-row img{ width: 24px; height: 24px; border-radius: 6px; display: block; }
   .intro-mark-row span{
@@ -144,7 +144,7 @@
     text-transform: uppercase;
     color: var(--capture);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.65s forwards;
+    animation: fadeUp 420ms ease 3.45s forwards;
   }
   .intro-mark-tagline{
     font-family: 'IBM Plex Sans', sans-serif;
@@ -152,7 +152,7 @@
     line-height: 1.45;
     color: var(--ink-soft);
     opacity: 0;
-    animation: fadeUp 420ms ease 2.80s forwards;
+    animation: fadeUp 420ms ease 3.60s forwards;
   }
 
   /* ---------- nav ---------- */
@@ -245,7 +245,7 @@
     border-radius: 100px;
     margin-bottom: 22px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.50s forwards;
+    animation: fadeUp 520ms ease 4.25s forwards;
   }
   .eyebrow .dot{
     width: 6px; height: 6px; border-radius: 50%;
@@ -265,8 +265,8 @@
     transform: translateY(16px);
     animation: fadeUp 620ms ease forwards;
   }
-  h1 .line:nth-child(1){ animation-delay: 3.60s; }
-  h1 .line:nth-child(2){ animation-delay: 3.70s; }
+  h1 .line:nth-child(1){ animation-delay: 4.38s; }
+  h1 .line:nth-child(2){ animation-delay: 4.48s; }
   h1 .accent{ color: var(--capture); }
 
   .hero p.sub{
@@ -276,14 +276,14 @@
     max-width: 460px;
     margin-bottom: 30px;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.82s forwards;
+    animation: fadeUp 520ms ease 4.60s forwards;
   }
   .hero-ctas{
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 520ms ease 3.94s forwards;
+    animation: fadeUp 520ms ease 4.72s forwards;
   }
   .btn-primary{
     background: var(--capture);
@@ -317,7 +317,7 @@
     padding-top: 22px;
     border-top: 1px solid var(--line);
     opacity: 0;
-    animation: fadeUp 520ms ease 4.08s forwards;
+    animation: fadeUp 520ms ease 4.85s forwards;
   }
   .stat{
     display: flex;
@@ -377,79 +377,6 @@
 
   @keyframes bpFade{ to{ opacity: 1; } }
 
-
-  /* ---------- widget stage: restoration tools converging into the app ---------- */
-  .widget-stage{
-    position: absolute;
-    top: 50%; left: 50%;
-    width: 1px; height: 1px;
-  }
-  .widget-card{
-    position: absolute;
-    top: 0; left: 0;
-    width: 192px;
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 15px 17px;
-    box-shadow: 0 18px 36px -14px rgba(23,24,27,0.3);
-    opacity: 0;
-  }
-  .widget-label{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 7px;
-  }
-  .widget-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); margin-bottom: 8px; }
-  .widget-title-lg{ font-size: 26px; }
-  .widget-unit{ font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; color: var(--ink-soft); margin-left: 2px; }
-  .widget-row{ display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-  .widget-meta{ font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .badge-cat{
-    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 700;
-    background: rgba(63,158,109,.15); color: #2F7350;
-    padding: 2px 7px; border-radius: 6px; flex-shrink: 0;
-  }
-  .status-progress-static{ background: var(--capture); color: #fff; }
-
-  .widget-1{ animation: wFloat1 1.5s ease-in-out 0.1s forwards; }
-  .widget-2{ animation: wFloat2 1.5s ease-in-out 0.1s forwards; }
-  .widget-3{ animation: wFloat3 1.5s ease-in-out 0.1s forwards; }
-  .widget-4{ animation: wFloat4 1.5s ease-in-out 0.1s forwards; }
-
-  @keyframes wFloat1{
-    0%{     opacity: 0; transform: translate(-198px,-198px) scale(.8)  rotate(-4deg); }
-    8%{     opacity: 1; transform: translate(-198px,-198px) scale(1)   rotate(-4deg); }
-    44%{    opacity: 1; transform: translate(-198px,-198px) scale(1)   rotate(-4deg); }
-    70%{    opacity: 1; transform: translate(-198px,-198px) scale(1.4) rotate(-4deg); }
-    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
-  }
-  @keyframes wFloat2{
-    0%,16%{ opacity: 0; transform: translate(18px,-220px) scale(.8)  rotate(3deg); }
-    24%{    opacity: 1; transform: translate(18px,-220px) scale(1)   rotate(3deg); }
-    48%{    opacity: 1; transform: translate(18px,-220px) scale(1)   rotate(3deg); }
-    70%{    opacity: 1; transform: translate(18px,-220px) scale(1.4) rotate(3deg); }
-    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
-  }
-  @keyframes wFloat3{
-    0%,28%{ opacity: 0; transform: translate(-208px,128px) scale(.8)  rotate(3deg); }
-    36%{    opacity: 1; transform: translate(-208px,128px) scale(1)   rotate(3deg); }
-    52%{    opacity: 1; transform: translate(-208px,128px) scale(1)   rotate(3deg); }
-    70%{    opacity: 1; transform: translate(-208px,128px) scale(1.4) rotate(3deg); }
-    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
-  }
-  @keyframes wFloat4{
-    0%,40%{ opacity: 0; transform: translate(23px,172px) scale(.8)  rotate(-3deg); }
-    48%{    opacity: 1; transform: translate(23px,172px) scale(1)   rotate(-3deg); }
-    58%{    opacity: 1; transform: translate(23px,172px) scale(1)   rotate(-3deg); }
-    70%{    opacity: 1; transform: translate(23px,172px) scale(1.4) rotate(-3deg); }
-    100%{   opacity: 0; transform: translate(0,0) scale(.12) rotate(0deg); }
-  }
-
   /* ---------- phone mockup: materializes already populated ---------- */
   .phone-mockup{
     position: relative;
@@ -474,10 +401,14 @@
     padding: 10px;
     box-shadow: 0 30px 60px -20px rgba(23,24,27,0.35), 0 10px 24px -10px rgba(23,24,27,0.2);
     opacity: 0;
-    transform: scale(.72) rotate(-2deg);
-    animation: phoneIn 400ms cubic-bezier(.2,.8,.2,1) 1.45s forwards;
+    transform: scale(1.4) rotate(-2deg);
+    animation: phoneZoomOut 900ms cubic-bezier(.16,.8,.24,1) 0.2s forwards;
   }
-  @keyframes phoneIn{ to{ opacity: 1; transform: scale(1) rotate(-2deg); } }
+  @keyframes phoneZoomOut{
+    0%{   opacity: 0; transform: scale(1.4) rotate(-2deg); }
+    35%{  opacity: 1; }
+    100%{ opacity: 1; transform: scale(1) rotate(-2deg); }
+  }
   .phone-notch{
     position: absolute;
     top: 10px;
@@ -507,6 +438,52 @@
   .si-bar:nth-child(2){ height: 10px; }
   .si-bar:nth-child(3){ height: 6px; }
   .si-batt{ display:inline-block; width: 16px; height: 9px; border: 1.3px solid var(--ink); border-radius: 2px; margin-left: 3px; }
+
+  .screen-pages{ flex: 1; position: relative; overflow: hidden; }
+  .screen-floorplan, .screen-daily{
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+  }
+  .screen-floorplan{
+    opacity: 1;
+    animation: fpScreenOut 500ms ease 2.0s forwards;
+  }
+  @keyframes fpScreenOut{ to{ opacity: 0; } }
+  .screen-daily{
+    opacity: 0;
+    animation: dailyScreenIn 500ms ease 2.1s forwards;
+  }
+  @keyframes dailyScreenIn{ to{ opacity: 1; } }
+
+  /* -- floor plan / scope screen -- */
+  .fp-header{ flex-shrink: 0; display: flex; align-items: center; gap: 10px; padding: 10px 18px 12px; border-bottom: 1px solid var(--line); }
+  .fp-back{ font-size: 20px; color: var(--ink-soft); line-height: 1; }
+  .fp-title-wrap{ flex: 1; display: flex; flex-direction: column; }
+  .fp-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); }
+  .fp-subtitle{ font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--muted); margin-top: 1px; }
+  .fp-tag{
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+    color: var(--capture); background: var(--capture-soft); border: 1px solid rgba(46,155,199,.35);
+    padding: 3px 9px; border-radius: 20px; flex-shrink: 0;
+  }
+  .fp-diagram{ flex: 1; display: flex; align-items: center; justify-content: center; padding: 10px 18px; }
+  .fp-svg{ width: 100%; height: auto; }
+  .fp-svg .fp-wall{ fill: none; stroke: var(--ink); stroke-width: 4.5; stroke-linecap: square; }
+  .fp-svg .fp-door-leaf{ fill: none; stroke: var(--ink-soft); stroke-width: 2; }
+  .fp-svg .fp-door-swing{ fill: none; stroke: var(--bp-dim, #A7ACB0); stroke-width: 1; stroke-dasharray: 3 3; }
+  .fp-svg .fp-dim{ stroke: var(--bp-dim, #A7ACB0); stroke-width: 1; }
+  .fp-svg .fp-dim-tick{ stroke: var(--bp-dim, #A7ACB0); stroke-width: 1; }
+  .fp-svg .fp-dim-text{ font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; fill: var(--muted); }
+  .fp-svg .fp-marker{ stroke: var(--paper-raised); stroke-width: 1.5; }
+  .fp-svg .fp-marker-water{ fill: var(--capture); }
+  .fp-svg .fp-marker-equip{ fill: var(--ink-soft); }
+  .fp-svg .fp-marker-label{ font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 600; fill: var(--ink-soft); }
+  .fp-toolbar{ flex-shrink: 0; display: flex; gap: 8px; padding: 10px 18px 16px; border-top: 1px solid var(--line); }
+  .fp-btn{
+    flex: 1; text-align: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; color: var(--ink-soft);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 9px; padding: 9px 4px;
+  }
 
   .app-header{ flex-shrink: 0; padding: 10px 22px 12px; border-bottom: 1px solid var(--line); }
   .app-brand{ display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
@@ -563,7 +540,7 @@
   .job-card-active .status-badge{
     position: absolute; top: 0; right: 0;
     background: var(--line); color: var(--ink-soft);
-    animation: pillToggle 6s ease-in-out 2.0s infinite alternate;
+    animation: pillToggle 6s ease-in-out 2.8s infinite alternate;
   }
   @keyframes pillToggle{
     0%{ opacity: 1; }
@@ -578,7 +555,7 @@
     background: var(--capture); color: #fff;
     font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-weight: 600; white-space: nowrap;
     opacity: 0;
-    animation: pillToggleAfter 6s ease-in-out 2.0s infinite alternate;
+    animation: pillToggleAfter 6s ease-in-out 2.8s infinite alternate;
   }
   @keyframes pillToggleAfter{
     0%{ opacity: 0; }
@@ -593,7 +570,7 @@
     border-radius: 50%;
     border: 2px solid var(--capture);
     opacity: 0;
-    animation: tapRipple 6s ease 1.8s infinite;
+    animation: tapRipple 6s ease 2.6s infinite;
     pointer-events: none;
   }
   @keyframes tapRipple{
@@ -628,8 +605,9 @@
   body.no-intro .hero p.sub{ animation-delay: 0.45s !important; }
   body.no-intro .hero-ctas{ animation-delay: 0.55s !important; }
   body.no-intro .hero-stats{ animation-delay: 0.65s !important; }
-  body.no-intro .widget-stage{ display: none !important; }
   body.no-intro .phone-frame{ animation: none !important; opacity: 1 !important; transform: scale(1) rotate(-2deg) !important; }
+  body.no-intro .screen-floorplan{ animation: none !important; opacity: 0 !important; }
+  body.no-intro .screen-daily{ animation: none !important; opacity: 1 !important; }
   body.no-intro .job-card-tap{ animation-delay: 0.2s !important; }
   body.no-intro .job-card-active .status-badge{ animation-delay: 0.35s !important; }
   body.no-intro .job-card-active .job-status::after{ animation-delay: 0.4s !important; }
@@ -983,6 +961,8 @@
     .phone-frame, .app-statusbar, .app-header, .app-navbar, .job-card{
       opacity: 1 !important; transform: none !important;
     }
+    .screen-floorplan{ opacity: 0 !important; }
+    .screen-daily{ opacity: 1 !important; }
     .job-card-active .status-badge{ opacity: 0 !important; }
     .job-card-active .job-status::after{ opacity: 1 !important; }
     .job-card-tap{ display: none !important; }
@@ -996,35 +976,6 @@
 <div id="intro" aria-hidden="true">
   <div class="intro-plan-wrap">
 <div class="phone-mockup">
-      <div class="widget-stage">
-        <div class="widget-card widget-1">
-          <div class="widget-label">Schedule</div>
-          <div class="widget-title">88 Birch Ave</div>
-          <div class="widget-row">
-            <span class="widget-meta">11:30 AM</span>
-            <span class="status-pill status-progress-static">In Progress</span>
-          </div>
-        </div>
-        <div class="widget-card widget-2">
-          <div class="widget-label">Scope</div>
-          <div class="widget-title">Living Room</div>
-          <div class="widget-row">
-            <span class="badge-cat">CAT 1</span>
-            <span class="widget-meta">412 sq ft</span>
-          </div>
-        </div>
-        <div class="widget-card widget-3">
-          <div class="widget-label">Moisture</div>
-          <div class="widget-title widget-title-lg">18<span class="widget-unit">% MC</span></div>
-          <div class="widget-row"><span class="widget-meta">Drywall — Wall B</span></div>
-        </div>
-        <div class="widget-card widget-4">
-          <div class="widget-label">Equipment</div>
-          <div class="widget-title">4 Units Active</div>
-          <div class="widget-row"><span class="widget-meta">3 Air Movers · 1 Dehum</span></div>
-        </div>
-      </div>
-
         <div class="phone-glow"></div>
         <div class="phone-frame">
           <div class="phone-notch"></div>
@@ -1036,6 +987,47 @@
                 <span class="si-batt"></span>
               </div>
             </div>
+            <div class="screen-pages">
+              <div class="screen-floorplan">
+            <div class="fp-header">
+              <span class="fp-back">&#8249;</span>
+              <div class="fp-title-wrap">
+                <span class="fp-title">Living Room</span>
+                <span class="fp-subtitle">Main Level</span>
+              </div>
+              <span class="fp-tag">Scope</span>
+            </div>
+            <div class="fp-diagram">
+              <svg class="fp-svg" viewBox="0 0 220 176" role="img" aria-label="A single-room floor plan with dimensions, a door, and two scope markers">
+                <line class="fp-dim" x1="24" y1="14" x2="196" y2="14"/>
+                <line class="fp-dim-tick" x1="24" y1="10" x2="24" y2="18"/>
+                <line class="fp-dim-tick" x1="196" y1="10" x2="196" y2="18"/>
+                <text class="fp-dim-text" x="110" y="10" text-anchor="middle">14'-6"</text>
+
+                <path class="fp-wall" d="M24,24 H90"/>
+                <path class="fp-wall" d="M118,24 H196"/>
+                <path class="fp-wall" d="M196,24 V150"/>
+                <path class="fp-wall" d="M196,150 H24"/>
+                <path class="fp-wall" d="M24,150 V24"/>
+                <path class="fp-door-leaf" d="M90,24 V50"/>
+                <path class="fp-door-swing" d="M90,50 A26,26 0 0 0 116,24"/>
+
+                <circle class="fp-marker fp-marker-water" cx="150" cy="72" r="5"/>
+                <text class="fp-marker-label" x="150" y="90" text-anchor="middle">Water</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="62" cy="114" r="5"/>
+                <text class="fp-marker-label" x="62" y="132" text-anchor="middle">Fan</text>
+
+                <text class="fp-dim-text" x="10" y="90" text-anchor="middle" transform="rotate(-90 10 90)">11'-2"</text>
+              </svg>
+            </div>
+            <div class="fp-toolbar">
+              <div class="fp-btn">Set Size</div>
+              <div class="fp-btn">Add Scope</div>
+              <div class="fp-btn">Save</div>
+            </div>
+          </div>
+              <div class="screen-daily">
             <div class="app-header">
               <div class="app-brand"><img src="struvae-mark.png" alt=""><span>Daily</span></div>
               <div class="app-header-row">
@@ -1044,7 +1036,7 @@
               </div>
             </div>
             <div class="app-joblist">
-              <div class="job-card" style="--d:0.85s">
+              <div class="job-card">
                 <div class="job-card-top">
                   <span class="job-address">214 Maple St</span>
                   <span class="status-pill status-scheduled">Scheduled</span>
@@ -1054,7 +1046,7 @@
                   <span class="job-client">D. Whitfield</span>
                 </div>
               </div>
-              <div class="job-card job-card-active" style="--d:1.0s">
+              <div class="job-card job-card-active">
                 <div class="job-card-top">
                   <span class="job-address">88 Birch Ave</span>
                   <span class="job-status">
@@ -1067,7 +1059,7 @@
                 </div>
                 <div class="job-card-tap"></div>
               </div>
-              <div class="job-card" style="--d:1.15s">
+              <div class="job-card">
                 <div class="job-card-top">
                   <span class="job-address">560 Cedar Rd</span>
                   <span class="status-pill status-scheduled">Scheduled</span>
@@ -1081,31 +1073,15 @@
             <div class="app-snapshot">
               <div class="snapshot-label">Snapshot</div>
               <div class="snapshot-grid">
-                <div class="snap-card">
-                  <span class="snap-label">Scope</span>
-                  <span class="snap-value">Living Room</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Moisture</span>
-                  <span class="snap-value">18% MC</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Equipment</span>
-                  <span class="snap-value">4 Active</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Report</span>
-                  <span class="snap-value">Draft Ready</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Crew</span>
-                  <span class="snap-value">3 On Site</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Humidity</span>
-                  <span class="snap-value">62% RH</span>
-                </div>
+                <div class="snap-card"><span class="snap-label">Scope</span><span class="snap-value">Living Room</span></div>
+                <div class="snap-card"><span class="snap-label">Moisture</span><span class="snap-value">18% MC</span></div>
+                <div class="snap-card"><span class="snap-label">Equipment</span><span class="snap-value">4 Active</span></div>
+                <div class="snap-card"><span class="snap-label">Report</span><span class="snap-value">Draft Ready</span></div>
+                <div class="snap-card"><span class="snap-label">Crew</span><span class="snap-value">3 On Site</span></div>
+                <div class="snap-card"><span class="snap-label">Humidity</span><span class="snap-value">62% RH</span></div>
               </div>
+            </div>
+          </div>
             </div>
             <div class="app-navbar">
               <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
@@ -1188,35 +1164,6 @@
   <div class="blueprint-wrap">
     <div class="blueprint">
 <div class="phone-mockup">
-      <div class="widget-stage">
-        <div class="widget-card widget-1">
-          <div class="widget-label">Schedule</div>
-          <div class="widget-title">88 Birch Ave</div>
-          <div class="widget-row">
-            <span class="widget-meta">11:30 AM</span>
-            <span class="status-pill status-progress-static">In Progress</span>
-          </div>
-        </div>
-        <div class="widget-card widget-2">
-          <div class="widget-label">Scope</div>
-          <div class="widget-title">Living Room</div>
-          <div class="widget-row">
-            <span class="badge-cat">CAT 1</span>
-            <span class="widget-meta">412 sq ft</span>
-          </div>
-        </div>
-        <div class="widget-card widget-3">
-          <div class="widget-label">Moisture</div>
-          <div class="widget-title widget-title-lg">18<span class="widget-unit">% MC</span></div>
-          <div class="widget-row"><span class="widget-meta">Drywall — Wall B</span></div>
-        </div>
-        <div class="widget-card widget-4">
-          <div class="widget-label">Equipment</div>
-          <div class="widget-title">4 Units Active</div>
-          <div class="widget-row"><span class="widget-meta">3 Air Movers · 1 Dehum</span></div>
-        </div>
-      </div>
-
         <div class="phone-glow"></div>
         <div class="phone-frame">
           <div class="phone-notch"></div>
@@ -1228,6 +1175,47 @@
                 <span class="si-batt"></span>
               </div>
             </div>
+            <div class="screen-pages">
+              <div class="screen-floorplan">
+            <div class="fp-header">
+              <span class="fp-back">&#8249;</span>
+              <div class="fp-title-wrap">
+                <span class="fp-title">Living Room</span>
+                <span class="fp-subtitle">Main Level</span>
+              </div>
+              <span class="fp-tag">Scope</span>
+            </div>
+            <div class="fp-diagram">
+              <svg class="fp-svg" viewBox="0 0 220 176" role="img" aria-label="A single-room floor plan with dimensions, a door, and two scope markers">
+                <line class="fp-dim" x1="24" y1="14" x2="196" y2="14"/>
+                <line class="fp-dim-tick" x1="24" y1="10" x2="24" y2="18"/>
+                <line class="fp-dim-tick" x1="196" y1="10" x2="196" y2="18"/>
+                <text class="fp-dim-text" x="110" y="10" text-anchor="middle">14'-6"</text>
+
+                <path class="fp-wall" d="M24,24 H90"/>
+                <path class="fp-wall" d="M118,24 H196"/>
+                <path class="fp-wall" d="M196,24 V150"/>
+                <path class="fp-wall" d="M196,150 H24"/>
+                <path class="fp-wall" d="M24,150 V24"/>
+                <path class="fp-door-leaf" d="M90,24 V50"/>
+                <path class="fp-door-swing" d="M90,50 A26,26 0 0 0 116,24"/>
+
+                <circle class="fp-marker fp-marker-water" cx="150" cy="72" r="5"/>
+                <text class="fp-marker-label" x="150" y="90" text-anchor="middle">Water</text>
+
+                <circle class="fp-marker fp-marker-equip" cx="62" cy="114" r="5"/>
+                <text class="fp-marker-label" x="62" y="132" text-anchor="middle">Fan</text>
+
+                <text class="fp-dim-text" x="10" y="90" text-anchor="middle" transform="rotate(-90 10 90)">11'-2"</text>
+              </svg>
+            </div>
+            <div class="fp-toolbar">
+              <div class="fp-btn">Set Size</div>
+              <div class="fp-btn">Add Scope</div>
+              <div class="fp-btn">Save</div>
+            </div>
+          </div>
+              <div class="screen-daily">
             <div class="app-header">
               <div class="app-brand"><img src="struvae-mark.png" alt=""><span>Daily</span></div>
               <div class="app-header-row">
@@ -1236,7 +1224,7 @@
               </div>
             </div>
             <div class="app-joblist">
-              <div class="job-card" style="--d:0.85s">
+              <div class="job-card">
                 <div class="job-card-top">
                   <span class="job-address">214 Maple St</span>
                   <span class="status-pill status-scheduled">Scheduled</span>
@@ -1246,7 +1234,7 @@
                   <span class="job-client">D. Whitfield</span>
                 </div>
               </div>
-              <div class="job-card job-card-active" style="--d:1.0s">
+              <div class="job-card job-card-active">
                 <div class="job-card-top">
                   <span class="job-address">88 Birch Ave</span>
                   <span class="job-status">
@@ -1259,7 +1247,7 @@
                 </div>
                 <div class="job-card-tap"></div>
               </div>
-              <div class="job-card" style="--d:1.15s">
+              <div class="job-card">
                 <div class="job-card-top">
                   <span class="job-address">560 Cedar Rd</span>
                   <span class="status-pill status-scheduled">Scheduled</span>
@@ -1273,31 +1261,15 @@
             <div class="app-snapshot">
               <div class="snapshot-label">Snapshot</div>
               <div class="snapshot-grid">
-                <div class="snap-card">
-                  <span class="snap-label">Scope</span>
-                  <span class="snap-value">Living Room</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Moisture</span>
-                  <span class="snap-value">18% MC</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Equipment</span>
-                  <span class="snap-value">4 Active</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Report</span>
-                  <span class="snap-value">Draft Ready</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Crew</span>
-                  <span class="snap-value">3 On Site</span>
-                </div>
-                <div class="snap-card">
-                  <span class="snap-label">Humidity</span>
-                  <span class="snap-value">62% RH</span>
-                </div>
+                <div class="snap-card"><span class="snap-label">Scope</span><span class="snap-value">Living Room</span></div>
+                <div class="snap-card"><span class="snap-label">Moisture</span><span class="snap-value">18% MC</span></div>
+                <div class="snap-card"><span class="snap-label">Equipment</span><span class="snap-value">4 Active</span></div>
+                <div class="snap-card"><span class="snap-label">Report</span><span class="snap-value">Draft Ready</span></div>
+                <div class="snap-card"><span class="snap-label">Crew</span><span class="snap-value">3 On Site</span></div>
+                <div class="snap-card"><span class="snap-label">Humidity</span><span class="snap-value">62% RH</span></div>
               </div>
+            </div>
+          </div>
             </div>
             <div class="app-navbar">
               <div class="nav-icon nav-icon-active"><span class="nav-glyph nav-glyph-home"></span></div>
@@ -1420,7 +1392,7 @@
         intro.classList.add('intro-hide');
         document.documentElement.classList.remove('intro-active');
         setTimeout(function(){ intro.remove(); }, 800);
-      }, 3500);
+      }, 4250);
     }
   })();
 
