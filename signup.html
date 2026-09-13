@@ -101,7 +101,7 @@
   };
 
   const SUPABASE_URL = "https://muansyegvsikodhpkrbo.supabase.co";
-  const SUPABASE_ANON_KEY = "PASTE_YOUR_ANON_KEY_HERE";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im11YW5zeWVndnNpa29kaHBrcmJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1MzcxNjEsImV4cCI6MjEwMzExMzE2MX0.4VDIRJg4MXsPIYfOfXiZ9gh5ypQKCqrfeLU7t-FJmo4";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: { storage: cookieStorage, storageKey: "struvae-auth-token", persistSession: true, autoRefreshToken: true },
